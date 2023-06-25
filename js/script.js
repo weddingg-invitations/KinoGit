@@ -1,33 +1,14 @@
-// //IMDB
-let movie_name = 'John Wick'
-const key_api = '7f40b6625aea0472e58da6d7ddc12fad'
-const img_api = `https://image.tmdb.org/t/p/w500/`
-const serch_api = `https://api.themoviedb.org/3/search/movie?query=${movie_name}&api_key=${key_api}`
-const url = `https://api.themoviedb.org/3/movie/popular?api_key=${key_api}&append_to_response=videos/1399`;
 
-fetch(`${url}`)
-    .then(response => response.json())
-    .then(function res(json) {
-        topFilms(json)
-        sliderConfigs()
-    })
+// // // data
+const D = new Date();
+const thisMonth = D.toLocaleString('en', { month: 'long' }); // june
+const thisYear = D.getFullYear() // 2023
 
-function topFilms(json) {
+document.getElementById('FullYear').innerText = thisYear
 
-    let swiperWrapper = document.querySelector('.swiper-wrapper')
-    json.results.forEach(film => {
-        let div = document.createElement('div')
-        div.className = 'swiper-slide'
-        div.innerHTML = `
-            <div class="swiper-slide" style="background-image:url(${img_api}${film.backdrop_path})">
-                <div class="info">
-                    <h5>${film.title}</h5>
-                </div>
-            </div>`
-        swiperWrapper.appendChild(div)
-    })
-}
 //TMDB 
+// themoviedb
+// -------------------
 
 const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -112,12 +93,38 @@ const genres = [
         "name": "Western"
     }
 ]
+// -----------------
+fetch(API_URL)
+    // slider top 20
+    .then(r => r.json())
+    .then(r => {
+        let films = r.results
+        const swiper_wrapper = document.getElementById('head-swiper-wrapper')
 
+        films.forEach(el => {
+            const div = document.createElement('div')
+            div.className = 'swiper-slide head-swiper-slide'
+            div.id = el.id
+            div.style = `background-image:url(https://image.tmdb.org/t/p/w500/${el.poster_path})`
+            div.innerHTML = `
+					<div class="head-swiper-wrapper-play-img-cont">
+						<img src="./assets/svg/play-button.svg" alt="play-button">
+					</div>
+
+					<span class="head-slide-reyting ${getColor(el.vote_average)}">${String(el.vote_average).slice(0, 3)}</span>
+					
+					<div class="head-info">
+						<h4 class="head-info-title">${el.title}</h4>
+					</div>`
+            swiper_wrapper.appendChild(div)
+        })
+        headSwiper()
+    })
+// ----------------
 const main = document.getElementById('main');
 const search_inp = document.getElementById('search_inp');
 const search_btn = document.getElementById('search_btn');
 const tagsEl = document.getElementById('categories');
-// const myNav = document.getElementById("myNav")
 
 const prev = document.getElementById('prev')
 const next = document.getElementById('next')
@@ -128,8 +135,9 @@ var nextPage = 2;
 var prevPage = 3;
 var lastUrl = '';
 var totalPages = 100;
-
 var selectedGenre = []
+
+// установить Жанр
 setGenre();
 function setGenre() {
     tagsEl.innerHTML = '';
@@ -159,21 +167,13 @@ function setGenre() {
     })
 }
 
+// множественный выбор жанор 
 function highlightSelection() {
     const tags = document.querySelectorAll('.categories__tag');
     tags.forEach(categories__tag => {
         categories__tag.classList.remove('categories__tag--active')
     })
-    clearBtn()
-    if (selectedGenre.length != 0) {
-        selectedGenre.forEach(id => {
-            const hightlightedTag = document.getElementById(id);
-            hightlightedTag.classList.add('categories__tag--active');
-        })
-    }
-}
-
-function clearBtn() {
+    // очистить кнопкой
     let clearBtn = document.getElementById('clear');
     if (clearBtn) {
         clearBtn.classList.add('categories__tag--active')
@@ -190,10 +190,17 @@ function clearBtn() {
         })
         tagsEl.append(clear);
     }
+
+    if (selectedGenre.length != 0) {
+        selectedGenre.forEach(id => {
+            const hightlightedTag = document.getElementById(id);
+            hightlightedTag.classList.add('categories__tag--active');
+        })
+    }
 }
 
+// получить фильмы
 getMovies(API_URL);
-
 function getMovies(url) {
     lastUrl = url;
     fetch(url).then(res => res.json()).then(data => {
@@ -204,7 +211,7 @@ function getMovies(url) {
             prevPage = currentPage - 1;
             totalPages = data.total_pages;
 
-            current.innerText = currentPage;
+            pagination(currentPage, totalPages)
 
             if (currentPage <= 1) {
                 prev.classList.add('disabled');
@@ -217,7 +224,7 @@ function getMovies(url) {
                 next.classList.remove('disabled')
             }
 
-            tagsEl.scrollIntoView({ behavior: 'smooth' })
+            // tagsEl.scrollIntoView({ behavior: 'smooth' })
 
         } else {
             main.innerHTML = `<h1 class="no-results">No Results Found</h1>`
@@ -225,13 +232,39 @@ function getMovies(url) {
     })
 }
 
+// нумерация страниц
+function pagination(currentPage, totalPages) {
+    document.querySelector('#total').textContent = '... ' + totalPages
+
+    current.innerHTML = `
+    <span class="pages" id="pages">${currentPage - 4}</span>
+    <span class="pages" id="pages">${currentPage - 3}</span>
+    <span class="pages" id="pages">${currentPage - 2}</span>
+    <span class="pages" id="pages">${currentPage - 1}</span>
+    <span class="pages pages-active" id="pages">${currentPage}</span>
+    <span class="pages" id="pages">${currentPage + 1}</span>
+    <span class="pages" id="pages">${currentPage + 2}</span>
+    <span class="pages" id="pages">${currentPage + 3}</span>
+    <span class="pages" id="pages">${currentPage + 4}</span>
+    `
+    document.querySelectorAll('.pages').forEach((el) => {
+        if (el.innerText < 1) {
+            el.style.display = 'none'
+        }
+        if (el.innerText > totalPages) {
+            el.style.display = 'none'
+        }
+    })
+    pagination_click()
+}
+
+// показать фильмы
 function showMovies(data) {
     main.innerHTML = '';
 
     data.forEach(movie => {
         const { title, poster_path, vote_average, overview, id } = movie;
         const movieEl = document.createElement('div');
-        console.log(String(vote_average).slice(0, 3));
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
             <img src="${poster_path ? IMG_URL + poster_path : "http://via.placeholder.com/1080x1580"}" alt="${title}">
@@ -253,94 +286,34 @@ function showMovies(data) {
     })
 }
 
-const overlayContent = document.getElementById('overlay-content');
-/* Open when someone clicks on the span element watch in youtube triller*/
-// function openNav(movie) {
-//     let id = movie.id;
-//     fetch(BASE_URL + '/movie/' + id + '/videos?' + API_KEY).then(res => res.json()).then(videoData => {
-//         if (videoData) {
-//             myNav.style.width = "100%";
-//             if (videoData.results.length > 0) {
-//                 var embed = [];
-//                 var dots = [];
-//                 videoData.results.forEach((video, idx) => {
-//                     let { name, key, site } = video
-//                     console.log(video);
-//                     if (site == 'YouTube') {
-//                         embed.push(`<iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+var activeSlide = 0;
+var totalVideos = 0;
 
-//                         dots.push(`<span class="dot">${idx + 1}</span>`)
-//                     }
-//                 })
-//                 var content = `
-//         <h1 class="no-results">${movie.original_title}</h1>
-//         <br/>
-//         ${embed.join('')}
-//         <br/>
-//         <div class="dots">${dots.join('')}</div>`
-//                 overlayContent.innerHTML = content;
-//                 activeSlide = 0;
-//                 showVideos();
-//             } else {
-//                 overlayContent.innerHTML = `<h1 class="no-results">No Results Found</h1>`
-//             }
-//         }
-//     })
-// }
+// показать видео
+function showVideos() {
+    let embedClasses = document.querySelectorAll('.embed');
+    let dots = document.querySelectorAll('.dot');
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
-// function closeNav() {
-//     document.getElementById("myNav").style.width = "0%";
-// }
+    totalVideos = embedClasses.length;
+    embedClasses.forEach((embedTag, idx) => {
+        if (activeSlide == idx) {
+            embedTag.classList.add('show')
+            embedTag.classList.remove('hide')
 
-// var activeSlide = 0;
-// var totalVideos = 0;
+        } else {
+            embedTag.classList.add('hide');
+            embedTag.classList.remove('show')
+        }
+    })
 
-// function showVideos() {
-//     let embedClasses = document.querySelectorAll('.embed');
-//     let dots = document.querySelectorAll('.dot');
-
-//     totalVideos = embedClasses.length;
-//     embedClasses.forEach((embedTag, idx) => {
-//         if (activeSlide == idx) {
-//             embedTag.classList.add('show')
-//             embedTag.classList.remove('hide')
-
-//         } else {
-//             embedTag.classList.add('hide');
-//             embedTag.classList.remove('show')
-//         }
-//     })
-
-//     dots.forEach((dot, indx) => {
-//         if (activeSlide == indx) {
-//             dot.classList.add('active');
-//         } else {
-//             dot.classList.remove('active')
-//         }
-//     })
-// }
-
-const leftArrow = document.getElementById('left-arrow')
-const rightArrow = document.getElementById('right-arrow')
-
-leftArrow.addEventListener('click', () => {
-    if (activeSlide > 0) {
-        activeSlide--;
-    } else {
-        activeSlide = totalVideos - 1;
-    }
-    showVideos()
-})
-
-rightArrow.addEventListener('click', () => {
-    if (activeSlide < (totalVideos - 1)) {
-        activeSlide++;
-    } else {
-        activeSlide = 0;
-    }
-    showVideos()
-})
+    dots.forEach((dot, indx) => {
+        if (activeSlide == indx) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active')
+        }
+    })
+}
 
 function getColor(vote) {
     if (vote >= 8) {
@@ -352,9 +325,7 @@ function getColor(vote) {
     }
 }
 
-// search_inp
-// search_btn
-
+// search_btn | search_inp
 search_btn.addEventListener('click', () => {
     const searchTerm = search_inp.value;
     selectedGenre = [];
@@ -366,6 +337,7 @@ search_btn.addEventListener('click', () => {
     }
 })
 
+// нумерация страниц вперед назад 
 prev.addEventListener('click', () => {
     if (prevPage > 0) {
         pageCall(prevPage);
@@ -377,6 +349,14 @@ next.addEventListener('click', () => {
         pageCall(nextPage);
     }
 })
+
+function pagination_click() {
+    document.querySelectorAll('#pages').forEach(p => {
+        p.addEventListener('click', () => {
+            pageCall(Number(p.textContent))
+        })
+    })
+}
 
 function pageCall(page) {
     let urlSplit = lastUrl.split('?');
