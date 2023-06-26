@@ -13,11 +13,6 @@
 </head>
 
 <body>
-    <!-- <video id="yohoho" data-kinopoisk="811609" controls>
-        <source src="//yohoho.cc/yo.mp4" type="video/mp4">
-      </video>
-      <script src="//yohoho.cc/yo.js"></script> -->
-    <!-- ---------------------------------------------------------------------------- -->
     <header>
         <!-- head swiper container-->
         <div class="head-top-cont">
@@ -32,8 +27,7 @@
                     <input class="search-inp" id="search_inp" type="text">
                     <span class="search-close" id="search-close"></span>
                     <img src="./assets/svg/search-icon.svg" class="search-btn" id="search_btn">
-                    </img>
-
+                </div>
             </nav>
         </div>
 
@@ -85,9 +79,7 @@
                 }
             </script>
         </div>
-        <!-- ------------------------- -->
 
-        <!-- ------------------------- -->
         <script>
             function headSwiper() {
                 const head_swiper_wrapper = document.querySelector('.head-swiper-wrapper')
@@ -136,46 +128,49 @@
                 // })
             }
         </script>
+
     </header>
-    <!-- ---------------------------------------------------------------------------- -->
 
+    <main id="main">
+        <div class="main_films_categories_cont">
+            <section class="main__section">
+                <div class="main__section__films" id="main__section__films"></div>
 
-    <div id="myNav" class="overlay">
+                <!-- https://kinoplayer.top/ -->
+                <div class="video_player">
+                    <div id="kinoplayertop" data-title="${move_title}"></div>
+                    <script src="//kinoplayer.top/top.js"></script>
+                </div>
+                
+            </section>
 
-        <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <nav class="right-nav">
+                <h3 class="categories-title">categories</h3>
+                <div class="categories" id="categories"></div>
+            </nav>
+        </div>
 
-        <!-- Overlay content -->
-        <div class="overlay-content" id="overlay-content"></div>
-
-        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a>
-
-        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow">&#8658;</a>
-
-    </div>
-
-    <main>
-        <section class="overlay-content" id="overlay_content"></section>
-        <section class="main__section" id="main"></section>
-
-        <nav>
-            <div class="categories" id="categories"></div>
-        </nav>
     </main>
 
     <footer>
         <div class="pagination">
-            <div class="page-prev" id="prev">prev</div>
+            <div class="page-prev" id="prev">
+                <img src="./assets/svg/next-svgrepo-com.svg" alt="prev btn">
+            </div>
+
             <div class="current" id="current"></div>
-            <div class="total" id="total">0</div>
-            <div class="page-next" id="next">next</div>
+
+            <div class="page-next" id="next">
+                <img src="./assets/svg/next-svgrepo-com.svg" alt="next btn">
+            </div>
         </div>
     </footer>
 
     <script src="./js/swiper/swiper-bundle.min.js"></script>
     <script src="./js/swiper/swiper-configs.js"></script>
     <script src="./js/searchAnim/searchAnim.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/get_api_setConfigs.js"></script>
+
 </body>
 
 </html>
