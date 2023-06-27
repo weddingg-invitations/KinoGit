@@ -16,7 +16,7 @@
     <header>
         <!-- head swiper container-->
         <div class="head-top-cont">
-            <h1 class="logo">Kino<span>Git</span></h1>
+            <a href="./index.html" class="logo">Kino<span>Git</span></a>
             <nav class="head-top-nav">
                 <a href="#" class="head-top-nav-items">топ <span id="FullYear">2010</span></a>
                 <a href="#" class="head-top-nav-items">Новинки</a>
@@ -134,21 +134,17 @@
     <main id="main">
         <div class="main_films_categories_cont">
             <section class="main__section">
-                <!-- <div class="main__section__films" id="main__section__films"></div> -->
-
+                <div class="main__section__films" id="main__section__films" style="display: none;"></div>
 
                 <!-- https://kinoplayer.top/ -->
-                <!-- <div class="video_player">
-                    <div id="kinoplayertop" data-title="${move_title}"></div>
-                    <script src="//kinoplayer.top/top.js"></script>
-                </div> -->
-                
-                <div id="kinoplayertop" data-kinopoisk="120560"></div>
-                <script src="//kinoplayer.top/top.js"></script>
+                <div class="video-player" id="video_player">
+                    <!-- <div id="kinoplayertop" data-player-active="tabus" data-title="" data-shearch="false" data-bg="#131313" data-ratio="1by1 "></div>
+                    <script src="//kinoplayer.top/top.js"></script> -->
+                </div>
 
             </section>
 
-            <nav class="right-nav">
+            <nav class="right-nav" style="display: none;">
                 <h3 class="categories-title">categories</h3>
                 <div class="categories" id="categories"></div>
             </nav>
@@ -157,7 +153,7 @@
     </main>
 
     <footer>
-        <!-- <div class="pagination">
+        <div class="pagination" style="display: none;">
             <div class="page-prev" id="prev">
                 <img src="./assets/svg/next-svgrepo-com.svg" alt="prev btn">
             </div>
@@ -167,13 +163,13 @@
             <div class="page-next" id="next">
                 <img src="./assets/svg/next-svgrepo-com.svg" alt="next btn">
             </div>
-        </div> -->
+        </div>
     </footer>
 
     <script src="./js/swiper/swiper-bundle.min.js"></script>
     <script src="./js/swiper/swiper-configs.js"></script>
     <script src="./js/searchAnim/searchAnim.js"></script>
-    <script src="./js/get_api_setConfigs.js"></script>
+    <script src="./js/getApi/get_api_setConfigs.js"></script>
 
 </body>
 

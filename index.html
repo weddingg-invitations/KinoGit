@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- helper -->
     <link rel="stylesheet" href="./css/helper/helper.css">
+    <!-- fonts -->
     <link rel="stylesheet" href="./assets/fonts/TsukimiRounded/stylesheet.css">
+    <!-- swiper -->
     <link rel="stylesheet" href="./css/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/swiper/swiperStyles.css">
+    <!-- main -->
     <link rel="stylesheet" href="./css/main.css">
     <title>KinoGit</title>
 </head>
@@ -16,7 +20,7 @@
     <header>
         <!-- head swiper container-->
         <div class="head-top-cont">
-            <h1 class="logo">Kino<span>Git</span></h1>
+            <a href="./index.html" class="logo">Kino<span>Git</span></a>
             <nav class="head-top-nav">
                 <a href="#" class="head-top-nav-items">топ <span id="FullYear">2010</span></a>
                 <a href="#" class="head-top-nav-items">Новинки</a>
@@ -135,13 +139,6 @@
         <div class="main_films_categories_cont">
             <section class="main__section">
                 <div class="main__section__films" id="main__section__films"></div>
-
-                <!-- https://kinoplayer.top/ -->
-                <div class="video_player">
-                    <div id="kinoplayertop" data-title="${move_title}"></div>
-                    <script src="//kinoplayer.top/top.js"></script>
-                </div>
-                
             </section>
 
             <nav class="right-nav">
@@ -169,7 +166,7 @@
     <script src="./js/swiper/swiper-bundle.min.js"></script>
     <script src="./js/swiper/swiper-configs.js"></script>
     <script src="./js/searchAnim/searchAnim.js"></script>
-    <script src="./js/get_api_setConfigs.js"></script>
+    <script src="./js/getApi/get_api_setConfigs.js"></script>
 
 </body>
 
