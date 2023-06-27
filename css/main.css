@@ -412,7 +412,7 @@ header {
   opacity: 1;
   color: #ffffff;
   transform: translate(-2px, 2px);
-  box-shadow: 1px -1px 5px 0 #ffffff;
+  box-shadow: 3px -3px 10px 2px #000000;
 }
 .categories .categories__tag--active {
   border: 1px solid #ffffff;
@@ -493,7 +493,7 @@ header {
   word-break: break-word;
 }
 .main__section .movie:hover {
-  box-shadow: 0 0 20px 0 #ffffff;
+  box-shadow: 0 0 35px 10px #000000;
 }
 .main__section .movie:hover > .watch__now {
   opacity: 1;

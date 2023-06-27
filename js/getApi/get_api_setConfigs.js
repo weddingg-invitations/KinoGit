@@ -9,16 +9,10 @@ document.getElementById('FullYear').innerText = thisYear
 
 //TMDB themoviedb
 // ------------------
-let move_data_coll = {
-    'kinopoisk_id': 'id',
-    'title_RU': 'title',
-    'original_title': 'original_title',
-    'release_date': 'release_date'
-}
 
 let language = 'ru-RU'
-const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8';
 
+const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + `/trending/all/week?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
@@ -171,7 +165,7 @@ function setGenre() {
                     selectedGenre.push(genre.id);
                 }
             }
-            getMovies(BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
+            getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
             highlightSelection()
         })
         tagsEl.append(t);

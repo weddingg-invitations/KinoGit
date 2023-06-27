@@ -457,7 +457,7 @@ header {
             opacity: 1;
             color: $colorWhite;
             transform: translate(-2px, 2px);
-            box-shadow: 1px -1px 5px 0 $colorWhite;
+            box-shadow: 3px -3px 10px 2px  $colorBlack;
         }
     }
 
@@ -548,7 +548,7 @@ header {
         }
 
         &:hover {
-            box-shadow: 0 0 20px 0 $colorWhite;
+            box-shadow: 0 0 35px 10px $colorBlack;
         }
 
         &:hover>.watch__now {
