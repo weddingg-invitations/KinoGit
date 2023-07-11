@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/swiper/swiperStyles.css">
     <!-- main -->
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main/main.css">
     <title>KinoGit</title>
 </head>
 
@@ -22,10 +22,11 @@
         <div class="head-top-cont">
             <a href="./index.html" class="logo">Kino<span>Git</span></a>
             <nav class="head-top-nav">
-                <a href="#" class="head-top-nav-items">топ <span id="FullYear">2010</span></a>
-                <a href="#" class="head-top-nav-items">Новинки</a>
-                <a href="#" class="head-top-nav-items">Премьеры</a>
-                <a href="#" class="head-top-nav-items">Случайный</a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span
+                        id="FullYear">2010</span></a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="action">Премьеры</a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="animation">мультики</a>
+                <a href="javascript:void(0)" class="head-top-nav-items">Случайный</a>
 
                 <div class="search" id="search">
                     <input class="search-inp" id="search_inp" type="text">
@@ -35,20 +36,78 @@
             </nav>
         </div>
 
+        <div class="move_info_cont"></div>
+
         <div class="swiper-container head-swiper-container">
             <div class="swiper-wrapper head-swiper-wrapper" id="head-swiper-wrapper"></div>
+            <!-- buttons -->
+            <div class="swiper-button-prev-unique"></div>
+            <div class="swiper-button-next-unique"></div>
             <!-- Add Pagination -->
             <div class="swiper-pagination head-swiper-pagination"></div>
             <!--swiper configs -->
             <script>
                 function headSwiper() {
-                    const head_swiper_wrapper = document.querySelector('.head-swiper-wrapper')
+
+                    let bacground_poster_push = document.querySelector('header')
+                    let move_info_cont = document.querySelector('.move_info_cont')
+
+                    let move_info_cont_data_change = () => {
+
+                        setTimeout(() => {
+
+                            bacground_poster_push.style.backgroundImage = `url(${document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_imgSrc').textContent}`
+                            // get 
+                            let move_info_cont_original_title = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_original_title').textContent
+                            let move_info_cont_title = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_title').textContent
+                            let head_swiper_info_data = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_data').textContent
+                            let reyting = Math.round(Number(document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_reyting').textContent))
+                            // set
+
+                            move_info_cont.innerHTML = `<h2 class="move_info_cont_title">${move_info_cont_title}</h2>
+                                <p class="move_info_cont_date">дата выхода - ${head_swiper_info_data.replace(/-/g, " / ")}</p>
+                                <p class="move_info_cont_reyting">рейтинг TMDB - 
+                                    <span class='reyting_stars_cont'>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                        <span class='reyting_stars'></span>
+                                    </span>
+                                </p>
+
+                                <div class="move_info_cont_row">
+                                    <div class="move_info_cont_play movie" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
+                                        <img src="./assets/svg/icons-play.png" alt="play">
+                                        смотреть</div>
+                                    <div class="move_info_cont_triller">триллер</div>
+                                </div>`
+                            let stars = document.querySelectorAll('.reyting_stars')
+                            for (let i = 0; i < reyting; i++) {
+                                stars[i].classList.add('yellow')
+                            }
+
+                            setTimeout(() => {
+                                document.querySelector('.move_info_cont_title').classList.add('move_info_cont_date_anim')
+                                document.querySelector('.move_info_cont_date').classList.add('move_info_cont_date_anim')
+                                document.querySelector('.move_info_cont_reyting').classList.add('move_info_cont_date_anim')
+                                document.querySelector('.move_info_cont_row').classList.add('move_info_cont_date_anim')
+                            }, 500);
+                            // get_move_andPlay()
+                        }, 400)
+                    }
 
                     let swiper = new Swiper('.head-swiper-container', {
                         effect: 'coverflow',
                         speed: 700,
                         centeredSlides: true,
                         slidesPerView: 'auto',
+                        loop: true,
                         coverflowEffect: {
                             depth: 40,
                             modifier: 5,
@@ -57,81 +116,33 @@
                             slideShadows: true,
                             stretch: -10,
                         },
+                        navigation: {
+                            nextEl: '.swiper-button-next-unique',
+                            prevEl: '.swiper-button-prev-unique',
+                        },
                         pagination: {
                             el: '.swiper-pagination',
                             clickable: true,
                         },
                         autoplay: {
-                            delay: 2000,
+                            delay: 3000,
                         },
                         on: {
                             // -------- touch & move--------
-                            // sliderMove: function () {
-                            //     setTimeout(() => {
-                            //         document.querySelector('header').style.backgroundImage = head_swiper_wrapper.querySelector('.swiper-slide-active').style.backgroundImage
-                            //     }, 150)
-                            // },
+                            sliderMove: function () {
+                                move_info_cont_data_change()
+                            },
 
-                            // -------- if buttones activete run this--------
-                            // slideChange: function () {
-                            //     setTimeout(() => {
-                            //         document.querySelector('header').style.backgroundImage = head_swiper_wrapper.querySelector('.swiper-slide-active').style.backgroundImage
-                            //     }, 350)
-                            // }
+                            // -------- if buttones activete run this || autoplay--------
+                            slideChange: function () {
+                                move_info_cont_data_change()
+                            }
                         }
                     })
+                    move_info_cont_data_change()
                 }
             </script>
         </div>
-
-        <script>
-            function headSwiper() {
-                const head_swiper_wrapper = document.querySelector('.head-swiper-wrapper')
-
-                let swiper = new Swiper('.head-swiper-container', {
-                    effect: 'coverflow',
-                    speed: 700,
-                    centeredSlides: true,
-                    slidesPerView: 'auto',
-                    coverflowEffect: {
-                        depth: 40,
-                        modifier: 5,
-                        rotate: 0,
-                        // scale:1.1,
-                        slideShadows: true,
-                        stretch: -10,
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    autoplay: {
-                        delay: 2000,
-                    },
-                    on: {
-                        // -------- touch & move--------
-                        // sliderMove: function () {
-                        //     setTimeout(() => {
-                        //         document.querySelector('header').style.backgroundImage = head_swiper_wrapper.querySelector('.swiper-slide-active').style.backgroundImage
-                        //     }, 150)
-                        // },
-
-                        // -------- if buttones activete run this--------
-                        // slideChange: function () {
-                        //     setTimeout(() => {
-                        //         document.querySelector('header').style.backgroundImage = head_swiper_wrapper.querySelector('.swiper-slide-active').style.backgroundImage
-                        //     }, 350)
-                        // }
-                    }
-                })
-
-                // -------- get (click) head slider element --------
-
-                // head_swiper_wrapper.addEventListener('click', () => {
-                //     console.log(swiper.clickedSlide);
-                // })
-            }
-        </script>
 
     </header>
 
@@ -139,20 +150,13 @@
         <div class="main_films_categories_cont">
             <section class="main__section">
                 <div class="main__section__films" id="main__section__films"></div>
-
-                <div class="video-player" id="video_player">
-                    <div id="kinoplayertop" data-player-active="tabus" data-title="" data-shearch="false"
-                        data-bg="#131313" data-ratio="1by1 "></div>
-                    <!-- <script src="//kinoplayer.top/top.js"></script> -->
-                </div>
             </section>
 
             <nav class="right-nav">
-                <h3 class="categories-title">categories</h3>
+                <h3 class="categories-title">категории</h3>
                 <div class="categories" id="categories"></div>
             </nav>
         </div>
-
     </main>
 
     <footer>
@@ -161,18 +165,28 @@
                 <img src="./assets/svg/next-svgrepo-com.svg" alt="prev btn">
             </div>
 
-            <div class="current" id="current"></div>
+            <div class="current" id="current">
+                <div class="total_pages" id="total_pages"></div>
+            </div>
 
             <div class="page-next" id="next">
                 <img src="./assets/svg/next-svgrepo-com.svg" alt="next btn">
             </div>
         </div>
+
+        <div class="all-info">
+            <div class="logo">Kino<span>Git</span></div>
+            <nav class="navigation">
+                <a href="./privacy-polic.html">Правообладателям</a>
+                <a href="./app.html">Приложение</a>
+                <a href="./contact.html">Контакты</a>
+            </nav>
+        </div>
     </footer>
 
     <script src="./js/swiper/swiper-bundle.min.js"></script>
-    <script src="./js/swiper/swiper-configs.js"></script>
     <script src="./js/searchAnim/searchAnim.js"></script>
-    <script src="./js/getApi/get_api_setConfigs.js"></script>
+    <script src="./js/main/main.js"></script>
 
 </body>
 

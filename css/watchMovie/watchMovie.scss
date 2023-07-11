@@ -1,3 +1,22 @@
+// videoplayer styles
+.videoStylesOff {
+    display: none !important;
+}
+
+.menu {
+    display: none !important;
+}
+.video-player{
+    width: 50%;
+    min-width: 650px;
+    margin: 0 auto;
+}
+.top-left_2-xxL{
+    position: relative;
+    left: 70px !important;
+}
+
+
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 $fonts: 'Tsukimi Rounded', sans-serif;
@@ -12,15 +31,15 @@ $colororange: #ffa200;
 
 // reyting class add
 .orange {
-    background-color: #ffea00;
+    color: #ffea00;
 }
 
 .green {
-    background-color: lawngreen;
+    color: lawngreen;
 }
 
 .red {
-    background-color: #ff0000;
+    color: #ff0000;
 }
 
 .disabled {
@@ -70,7 +89,9 @@ header {
 }
 
 .head-top-cont {
-    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,7 +101,7 @@ header {
     background-color: #0c0c0c;
     box-shadow: 0 0 25px 0 $colorBlack;
     padding: 0 25px;
-    z-index: 10;
+    z-index: 50;
 }
 
 .logo {
@@ -109,6 +130,7 @@ header {
     position: relative;
     display: flex;
     height: fit-content;
+    text-transform: capitalize;
     padding-right: 25px;
 }
 
@@ -236,6 +258,7 @@ header {
     top: 0;
     left: 0;
     width: 40%;
+    min-width: 340px;
     height: fit-content;
     margin-top: 120px;
     margin-left: 3%;
@@ -343,6 +366,68 @@ header {
     margin-bottom: 75px;
 }
 
+// buttons
+.swiper-button-prev-unique,
+.swiper-button-next-unique {
+    position: absolute;
+    bottom: 0;
+    z-index: 15;
+    width: 40px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100%;
+        clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0% 100%, 70% 50%, 0% 0%);
+        transition: 250ms;
+        background-color: $colororange;
+        opacity: 0.6;
+    }
+}
+
+.swiper-button-next-unique {
+    right: 10%;
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &:hover {
+        filter: drop-shadow(0 0 2px $colororange);
+    }
+
+    &:active {
+        filter: drop-shadow(0 0 5px $colororange);
+    }
+}
+
+.swiper-button-prev-unique {
+    left: 10%;
+    transform: rotate(180deg);
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &:hover {
+        filter: drop-shadow(0 0 2px $colororange);
+    }
+
+    &:active {
+        filter: drop-shadow(0 0 5px $colororange);
+    }
+}
+
+// -------
+
 .head-swiper-wrapper-play-img-cont {
     position: relative;
     display: flex;
@@ -406,10 +491,10 @@ header {
         border-radius: 0;
         width: 6px;
         height: 10px;
-        background-color: $colorWhite;
+        background-color: $colororange;
 
         &-active {
-            background-color: $colorWhite;
+            background-color: $colororange;
         }
     }
 
@@ -492,243 +577,45 @@ header {
     }
 }
 
-.main_films_categories_cont {
-    display: flex;
-}
+.Privacy-Polic-cont {
+    width: 90%;
+    margin: 50px auto;
 
-.right-nav {
-    width: 20%;
-}
-
-.categories-title {
-    color: $colorWhite;
-    text-align: center;
-    margin-bottom: 20px;
-    width: 80%;
-    min-width: 120px;
-}
-
-.categories {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-
-    .categories__tag {
-        text-align: center;
-        min-width: 120px;
-        margin-bottom: 10px;
-        padding: 5px 5px;
-        background-color: $color1;
+    p {
         color: $colorWhite;
-        opacity: 0.7;
-        transition: 350ms;
-        box-shadow: 0 0 15px 0 $colorBlack;
-        cursor: pointer;
-
-        &:hover {
-            opacity: 1;
-            color: $colorWhite;
-            transform: translate(-2px, 2px);
-            box-shadow: 3px -3px 10px 2px $colorBlack;
-        }
+        margin-bottom: 20px;
     }
 
-    .categories__tag--active {
-        border: 1px solid $colorWhite;
+    ul {
+        color: $colorWhite;
     }
 }
+//  footer
+.all-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 30px 80px 30px;
+    background-color: $colorBlack;
 
-.main__section {
-    width: 80%;
-
-    .main__section__films {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 3%;
+    .logo {
+        padding: 0;
+        color: $colorWhite;
+        width: fit-content;
     }
 
-    .movie {
-        position: relative;
-        width: 28%;
-        margin: 0px 5px 35px 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 0 20px 0 $colorBlack;
-        transition: 350ms;
-        cursor: pointer;
+    .navigation {
+        a {
+            color: $textColor;
+            margin-left: 5px;
+            transition: 100ms;
+            margin-left: 5px;
+            padding-bottom: 2px;
 
-        img {
-            width: 100%;
-        }
-
-        .watch__now {
-            position: absolute;
-            text-align: center;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: 250ms;
-            background-color: rgb(0 0 0 / 43%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            img {
-                transition: 250ms;
-                width: 20%;
-            }
-        }
-
-        .movie-info-reyting {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: 10px;
-            right: 10px;
-            border-radius: 100%;
-            width: 35px;
-            height: 35px;
-            font-size: 13px;
-            font-weight: 500;
-            background-color: $color1;
-            border: 2px solid;
-        }
-
-        .movie-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 65px;
-            width: 100%;
-            bottom: 0;
-            opacity: 0.9;
-        }
-
-        .movie-info-title {
-            text-align: center;
-            padding: 0 5px;
-            color: $colorWhite;
-            word-break: break-word;
-        }
-
-        &:hover {
-            box-shadow: 0 0 35px 10px $colorBlack;
-        }
-
-        &:hover>.watch__now {
-            opacity: 1;
-
-            &>img {
-                transform: scale(1.5);
+            &:hover {
+                border-bottom: 1px solid;
+                color: $colorWhite;
             }
         }
     }
 }
-
-footer {
-    padding: 20px 0 50px;
-
-    .pagination {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 45px;
-        color: $colorWhite;
-    }
-
-    .page-prev,
-    .page-next {
-        display: flex;
-        width: 40px;
-        background-color: $colorBlack;
-        padding: 8px;
-        color: $colorWhite;
-        cursor: pointer;
-    }
-
-    .page-prev img {
-        transform: rotate(180deg);
-    }
-
-    .current {
-        padding: 5px;
-        margin: 0 4px;
-    }
-
-    .pages {
-        padding: 5px;
-        margin: 0 4px;
-        background-color: $colorBlack;
-        border-radius: 3px;
-        font-family: system-ui;
-        cursor: pointer;
-    }
-
-    .pages-active {
-        background-color: $textColor;
-        color: $colorBlack;
-        background-color: $colorWhite;
-        font-weight: 600;
-    }
-}
-
-.overlay {
-    display: none;
-}
-
-// @media
-
-@media screen and (max-width: 700px) {
-    .main_films_categories_cont {
-        flex-direction: column-reverse;
-        margin: 0;
-    }
-
-    .right-nav {
-        margin: 20px 0;
-        width: 100%;
-    }
-
-    .categories-title {
-        width: 100%;
-    }
-
-    .categories {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 100%;
-        max-width: 84%;
-        margin: 0 auto;
-
-        .categories__tag {
-            margin: 5px;
-            min-width: auto;
-        }
-    }
-
-    .main__section {
-        width: 100%;
-    }
-
-    .main__section .movie {
-        justify-content: space-between;
-        background-color: $colorBlack;
-
-        .movie-info-title {
-            font-size: 11px;
-            padding: 3px;
-        }
-    }
-}
-
-// watch Move Page styles
