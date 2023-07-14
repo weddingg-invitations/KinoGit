@@ -9,12 +9,22 @@ search_close.addEventListener('click', () => {
     search_buttone.classList.toggle('search-btn-active')
     search_input.value = ''
     search.offsetWidth < 50 ? search_input.focus() : false;
+
+    if (document.getElementById('search__films__cont')) {
+        search__films__cont.innerHTML = ''
+    }
 })
 
 window.addEventListener('scroll', () => {
-    search.classList.remove('search-anime-inp')
-    search_close.classList.remove('search-anime-close')
-    search_buttone.classList.remove('search-btn-active')
-    search_input.value = ''
-    search.offsetWidth < 50 ? false : search_input.blur();
+    if (scrollY > 150) {
+        search.classList.remove('search-anime-inp')
+        search_close.classList.remove('search-anime-close')
+        search_buttone.classList.remove('search-btn-active')
+        search_input.value = ''
+        search.offsetWidth < 50 ? false : search_input.blur();
+
+        if (document.getElementById('search__films__cont')) {
+            search__films__cont.innerHTML = ''
+        }
+    }
 })

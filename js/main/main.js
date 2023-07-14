@@ -278,6 +278,7 @@ function showMovies(data) {
         movieEl.className = 'movie'
         movieEl.id = el.id
         movieEl.setAttribute('move_data', `${el.title} ${el.original_title} ${String(el.release_date).slice(0, 4)}/`)
+        movieEl.setAttribute('move_id', `${el.id}`)
         // есле у фильма отсутствует название не показывать фильм ???
         if (Boolean(el.title) && el.poster_path) {
             movieEl.innerHTML = `
@@ -392,13 +393,15 @@ function get_move_andPlay() {
         el.addEventListener('click', () => {
 
             // get data
-            let items = el.getAttribute('move_data')
+            let move_data = el.getAttribute('move_data')
+            let move_id = el.getAttribute('move_id')
 
             // save in localStorage
-            localStorage.setItem("move_data", `${items}`);
+            localStorage.setItem("move_data", `${move_data}`);
+            localStorage.setItem("move_id", `${move_id}`);
 
             // location
-            window.location.href = 'watchMovie.html';
+            window.location.href = './pages/watchMovie/watchMovie.html';
         })
     })
 }

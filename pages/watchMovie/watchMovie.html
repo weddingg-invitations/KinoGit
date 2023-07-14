@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- helper -->
-    <link rel="stylesheet" href="./css/helper/helper.css">
+    <link rel="stylesheet" href="./../../css/helper/helper.css">
     <!-- fonts -->
-    <link rel="stylesheet" href="./assets/fonts/TsukimiRounded/stylesheet.css">
+    <link rel="stylesheet" href="./../../assets/fonts/TsukimiRounded/stylesheet.css">
     <!-- swiper -->
-    <link rel="stylesheet" href="./css/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="./css/swiper/swiperStyles.css">
-    <!-- main -->
-    <link rel="stylesheet" href="./css/main/main.css">
+    <link rel="stylesheet" href="./../../css/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./../../css/swiper/swiperStyles.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./watchMovie.css">
+    <!-- <link rel="stylesheet" href="./css/main/main.css"> -->
     <title>KinoGit</title>
 </head>
 
@@ -20,12 +21,13 @@
     <header>
         <!-- head swiper container-->
         <div class="head-top-cont">
-            <a href="./index.html" class="logo">
+            <a href="../../index.html" class="logo">
                 <h1>Kino<span>Git</span></h1>
             </a>
             <nav class="head-top-nav">
-                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span
-                        id="FullYear">2010</span></a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ
+                    <span id="FullYear">2010</span>
+                </a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="action">Премьеры</a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="animation">мультики</a>
                 <a href="javascript:void(0)" class="head-top-nav-items">Случайный</a>
@@ -33,7 +35,8 @@
                 <div class="search" id="search">
                     <input class="search-inp" id="search_inp" type="text">
                     <span class="search-close" id="search-close"></span>
-                    <img src="./assets/svg/search-icon.svg" class="search-btn" id="search_btn">
+                    <img src="./../../assets/svg/search-icon.svg" class="search-btn" id="search_btn">
+                    <div class="search__films__cont" id="search__films__cont"></div>
                 </div>
             </nav>
         </div>
@@ -85,7 +88,7 @@
 
                                 <div class="move_info_cont_row">
                                     <div class="move_info_cont_play movie" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
-                                        <img src="./assets/svg/icons-play.png" alt="play">
+                                        <img src="./../../assets/svg/icons-play.png" alt="play">
                                         смотреть</div>
                                     <div class="move_info_cont_triller">триллер</div>
                                 </div>`
@@ -148,48 +151,49 @@
 
     </header>
 
-    <main id="main">
-        <div class="main_films_categories_cont">
-            <section class="main__section">
-                <div class="main__section__films" id="main__section__films"></div>
-            </section>
+    <main class="main__section" id="main">
+        <div class="about_film">
+            <div class="about_film_poster" id="about_film_poster"></div>
+            <div class="about_film_info">
+                <h3 class="about_film_info_title" id="about_film_info_title"></h3>
+                <p class="about_film_info_genres" id="about_film_info_genres"></p>
+                <p class="about_film_info_release_date" id="about_film_info_release_date"></p>
+                <p class="about_film_info_genres_vote_average" id="about_film_info_genres_vote_average"></p>
 
-            <nav class="right-nav">
-                <h3 class="categories-title">категории</h3>
-                <div class="categories" id="categories"></div>
-            </nav>
+            </div>
+        </div>
+
+        <div class="reclam_player" id="reclam_player">
+            <div class="reclam_player_baner">
+                <h3>здесь может быть ваша реклама</h3>
+                <p>kinogit@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- kinoplayer -->
+        <div class="video-player" id="video_player">
+            <div id="kinoplayertop" data-player-active="tabus" data-title="" data-shearch="false" data-bg="#131313"
+                data-ratio="1by1 "></div>
         </div>
     </main>
 
     <footer>
-        <div class="pagination">
-            <div class="page-prev" id="prev">
-                <img src="./assets/svg/next-svgrepo-com.svg" alt="prev btn">
-            </div>
-
-            <div class="current" id="current">
-                <div class="total_pages" id="total_pages"></div>
-            </div>
-
-            <div class="page-next" id="next">
-                <img src="./assets/svg/next-svgrepo-com.svg" alt="next btn">
-            </div>
-        </div>
-
         <div class="all-info">
             <div class="logo">Kino<span>Git</span></div>
             <nav class="navigation">
-                <a href="./pages/privacy-polic/privacy-polic.html">Правообладателям</a>
-                <a href="./pages/app/app.html">Приложение</a>
-                <a href="./pages/contact/contact.html">Контакты</a>
+                <a href="./../privacy-polic/privacy-polic.html">Правообладателям</a>
+                <a href="./../app/app.html">Приложение</a>
+                <a href="./../contact/contact.html">Контакты</a>
             </nav>
         </div>
     </footer>
 
-    <script src="./js/swiper/swiper-bundle.min.js"></script>
-    <script src="./js/searchAnim/searchAnim.js"></script>
-    <script src="./js/main/main.js"></script>
+    <script src="./../../js/swiper/swiper-bundle.min.js"></script>
+    <script src="./../../js/searchAnim/searchAnim.js"></script>
+    <script src="./getMovieUrl.js"></script>
+    <script src="./watchMove.js"></script>
 
+    <!-- <script src="//kinoplayer.top/top.js"></script> -->
 </body>
 
 </html>
