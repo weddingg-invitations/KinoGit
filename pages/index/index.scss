@@ -97,23 +97,13 @@ header {
         animation: blur1 10s ease-out infinite;
 
         span {
-            display: inline-block;
-        }
-
-        span:nth-child(5) {
-            color: $colororange;
-        }
-
-        span:nth-child(6) {
-            color: $colororange;
-        }
-
-        span:nth-child(7) {
             color: $colororange;
         }
     }
 
-    &:hover {}
+    &:hover {
+        text-shadow: 0 0 5px $colororange;
+    }
 }
 
 .head-top-nav {
@@ -122,6 +112,7 @@ header {
     height: fit-content;
     text-transform: capitalize;
     padding-right: 25px;
+    transition: 350ms;
 }
 
 .head-top-nav-items {
@@ -362,7 +353,7 @@ header {
         height: 100%;
         clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0% 100%, 70% 50%, 0% 0%);
         transition: 250ms;
-        background-color: $colororange;
+        background-color: $colorWhite;
         opacity: 0.6;
     }
 }
@@ -375,7 +366,7 @@ header {
     }
 
     &:hover {
-        filter: drop-shadow(0 0 2px $colororange);
+        filter: drop-shadow(0 0 2px $colorWhite);
     }
 
     &:active {
@@ -451,12 +442,12 @@ header {
     bottom: 0;
 
     &-bullet {
-        background: $colorWhite;
+        background-color: $colorWhite;
         opacity: 0.4;
     }
 
     &-bullet-active {
-        background: $colorWhite;
+        background-color: $colorWhite;
         opacity: 1;
         transform: scale(1.7);
     }
@@ -723,7 +714,7 @@ footer {
         display: flex;
         width: 40px;
         padding: 8px;
-        background-color: $colororange;
+        background-color: $color1;
         color: $colorWhite;
         border-radius: 5px;
         transition: 200ms;
@@ -747,7 +738,7 @@ footer {
     .pages {
         padding: 5px;
         margin: 0 4px;
-        background-color: $colororange;
+        background-color: $color1;
         opacity: 0.6;
         border-radius: 3px;
         font-family: system-ui;
@@ -761,7 +752,8 @@ footer {
 
     .pages-active {
         color: $colorWhite;
-        background-color: $colororange;
+        background-color: $colorWhite;
+        color: $colorBlack;
         font-weight: 600;
         opacity: 1;
     }
@@ -829,11 +821,58 @@ footer {
     .categories .categories__tag {
         font-size: 13px;
     }
+
+    header {
+        background-size: cover;
+        background-position: center;
+    }
+
 }
 
 @media screen and (max-width: 700px) {
+    footer .pages {
+        margin: 0 2px;
+
+        &:nth-child(1) {
+            display: none;
+        }
+
+        &:nth-child(2) {
+            display: none;
+        }
+
+        &:nth-child(8) {
+            display: none;
+        }
+
+        &:nth-child(9) {
+            display: none;
+        }
+    }
+
+    .head-swiper-wrapper {
+        margin-bottom: 40px;
+    }
+
+    header {
+        margin-bottom: 140px;
+    }
+
+    .move_info_cont,
+    header::before {
+        display: none;
+    }
+
     .head-top-nav-items {
         font-size: 13px;
+    }
+
+    .head-swiper-container {
+        height: 122%;
+    }
+
+    .swiper-pagination {
+        display: none;
     }
 
     .main__section {
@@ -884,13 +923,15 @@ footer {
 
 // _______---------------------------------------------------------------------
 @media screen and (max-width: 600px) {
+    .mob_open_close {
+        display: inline-block;
+    }
 
     .head-top-cont {
         padding: 10px 25px;
     }
 
     .head-top-nav {
-        display: none;
         text-transform: capitalize;
         position: absolute;
         flex-direction: column-reverse;
@@ -900,13 +941,23 @@ footer {
         background-color: #0C0C0C;
         width: 50%;
         min-width: 250px;
-        padding-top: 60px;
+        padding-top: 20px;
         padding-bottom: 40px;
     }
 
+    .all-info {
+        align-items: flex-start;
+    }
+
     .head-top-nav-active {
+        right: 0px;
+    }
+
+    .navigation {
         display: flex;
-        right: 0;
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 13px;
     }
 
     .search {
@@ -920,10 +971,6 @@ footer {
     .head-top-nav-items {
         margin-bottom: 10px;
         font-size: 17px;
-    }
-
-    .mob_open_close {
-        display: inline-block;
     }
 }
 
