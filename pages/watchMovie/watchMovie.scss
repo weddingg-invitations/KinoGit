@@ -6,7 +6,7 @@ $colorBlack: #000000;
 $bgColor: #131313;
 $color1: #1e1e1e;
 $textColor: #b7b7b7;
-$colororange: #ffa200;
+$colororange: #ffb700;
 
 // scrollbar
 /* width */
@@ -129,9 +129,6 @@ header {
 }
 
 .logo {
-    transition: 350ms;
-    animation: blur 1s ease-out infinite;
-    text-shadow: 0px 0px 5px $colorWhite;
     font-size: 30px;
     padding: 5px;
     cursor: pointer;
@@ -139,23 +136,12 @@ header {
     h1 {
         font-size: 30px;
         font-weight: 400;
-        span {
-            color: $colororange;
-        }
+        animation: blur1 10s ease-out infinite;
+
+        span {}
     }
 
-    &:hover {
-        transform: translate(1px, 1px);
-        text-shadow: 0px 0px 10px $colorWhite,
-            0px 0px 25px $colorWhite;
-    }
-
-    @keyframes blur {
-        from {
-            text-shadow: 0px 0px 10px $colorWhite,
-                0px 0px 25px $colorWhite,
-        }
-    }
+    &:hover {}
 }
 
 .head-top-nav {
@@ -398,18 +384,6 @@ header {
         }
     }
 
-    .move_info_cont_triller {
-        background-color: $colororange;
-        width: fit-content;
-        padding: 8px 16px;
-        transition: 400ms;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #ff8300;
-        }
-    }
-
     .reyting_stars {
         display: inline-block;
         width: 15px;
@@ -513,8 +487,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    top: -1%;
+    left: -1%;
+    width: 102%;
+    height: 102%;
     transition: 350ms;
 
     img {
@@ -533,7 +509,6 @@ header {
     width: 130px;
     height: 195px;
     border-radius: 5px;
-    overflow: hidden;
     filter: drop-shadow(0px 0px 13px black);
     cursor: pointer;
 
@@ -657,32 +632,70 @@ header {
     }
 }
 
-.main__section{
+.main__section {}
 
-}
-
-.about_film{
+.about_film {
+    position: relative;
     display: flex;
-    width: 80%;
-    margin: 0 auto;
-    height: 400px;
-    background-color: #3d3c3c;
-    color: white;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 60px;
+    color: $colorWhite;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000c9;
+        background: linear-gradient(180deg, rgba(19, 19, 19, 1) 0%, rgba(0, 0, 0, 0.7008053221288515) 10%, rgba(0, 0, 0, 0.8016456582633054) 90%, rgba(19, 19, 19, 1) 100%);
+        z-index: 1;
+    }
 }
 
-.about_film_poster{
+.about_film_cont {
+    display: flex;
+    width: 70%;
+    max-width: 1200px;
+    z-index: 4;
+}
+
+.about_film_poster {
     width: 40%;
     height: 100%;
     background-size: cover;
 }
 
-.about_film_info{
+.about_film_info {
     width: 60%;
     height: 100%;
+    padding-left: 5%;
+    padding-top: 20px;
+
+    p {
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+        text-transform: capitalize;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+.about_film_info_title {
+    z-index: 4;
+    padding: 30px 0;
+    font-size: 30px;
 }
 
 .reclam_player {
-    width: 60%;
+    width: 65%;
     height: 350px;
     background-color: $colorBlack;
     margin: 80px auto;
@@ -708,6 +721,14 @@ header {
     ul {
         color: $colorWhite;
     }
+}
+
+.reyting_stars {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #6b6a6a;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 //  footer

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/swiper/swiperStyles.css">
     <!-- main -->
-    <link rel="stylesheet" href="./css/main/main.css">
+    <link rel="stylesheet" href="./pages/index/index.css">
     <title>KinoGit</title>
 </head>
 
@@ -21,8 +21,17 @@
         <!-- head swiper container-->
         <div class="head-top-cont">
             <a href="./index.html" class="logo">
-                <h1>Kino<span>Git</span></h1>
+                <h1>
+                    <span>K</span>
+                    <span>i</span>
+                    <span>n</span>
+                    <span>o</span>
+                    <span>G</span>
+                    <span>i</span>
+                    <span>t</span>
+                </h1>
             </a>
+
             <nav class="head-top-nav">
                 <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span
                         id="FullYear">2010</span></a>
@@ -36,6 +45,10 @@
                     <img src="./assets/svg/search-icon.svg" class="search-btn" id="search_btn">
                 </div>
             </nav>
+
+            <div class="mob_open_close" id="mob_open_close">
+                <img src="./assets/svg/burger-menu-right-svgrepo-com.svg" alt="">
+            </div>
         </div>
 
         <div class="move_info_cont"></div>
@@ -65,48 +78,45 @@
                             let head_swiper_info_data = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_data').textContent
                             let reyting = Math.round(Number(document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_reyting').textContent))
                             // set
+                            function reytingStars() {
+                                for (let i = 0; i < 10; i++) {
+                                    let span = document.createElement('span')
+                                    span.className = 'reyting_stars'
+                                    document.getElementById('reyting_stars_cont').appendChild(span)
+
+                                    if (i < Math.round(reyting)) {
+                                        document.querySelectorAll('.reyting_stars')[i].style.cssText = 'background-color: yellow'
+                                    }
+                                }
+                            }
 
                             move_info_cont.innerHTML = `<h2 class="move_info_cont_title">${move_info_cont_title}</h2>
                                 <p class="move_info_cont_date">дата выхода - ${head_swiper_info_data.replace(/-/g, " / ")}</p>
                                 <p class="move_info_cont_reyting">рейтинг TMDB - 
-                                    <span class='reyting_stars_cont'>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                    </span>
+                                    <span class='reyting_stars_cont' id='reyting_stars_cont'></span>
                                 </p>
 
                                 <div class="move_info_cont_row">
-                                    <div class="move_info_cont_play movie" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
-                                        <img src="./assets/svg/icons-play.png" alt="play">
-                                        смотреть</div>
-                                    <div class="move_info_cont_triller">триллер</div>
+                                    <div class="move_info_cont_play movie" id="move_info_cont_play" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
+                                        <img src="./assets/svg/icons-play.png" alt="play">смотреть
+                                    </div>
                                 </div>`
-                            let stars = document.querySelectorAll('.reyting_stars')
-                            for (let i = 0; i < reyting; i++) {
-                                stars[i].classList.add('yellow')
-                            }
 
-                            setTimeout(() => {
+                            setTimeout((e) => {
                                 document.querySelector('.move_info_cont_title').classList.add('move_info_cont_date_anim')
                                 document.querySelector('.move_info_cont_date').classList.add('move_info_cont_date_anim')
                                 document.querySelector('.move_info_cont_reyting').classList.add('move_info_cont_date_anim')
                                 document.querySelector('.move_info_cont_row').classList.add('move_info_cont_date_anim')
                             }, 500);
-                            // get_move_andPlay()
+
+                            reytingStars()
+                            move_info_cont_play()
                         }, 400)
                     }
 
                     let swiper = new Swiper('.head-swiper-container', {
                         effect: 'coverflow',
-                        speed: 700,
+                        speed: 500,
                         centeredSlides: true,
                         slidesPerView: 'auto',
                         loop: true,
@@ -126,9 +136,9 @@
                             el: '.swiper-pagination',
                             clickable: true,
                         },
-                        autoplay: {
-                            delay: 3000,
-                        },
+                        // autoplay: {
+                        //     delay: 5000,
+                        // },
                         on: {
                             // -------- touch & move--------
                             sliderMove: function () {
@@ -155,7 +165,10 @@
             </section>
 
             <nav class="right-nav">
-                <h3 class="categories-title">категории</h3>
+                <h3 class="categories-title">
+                    <span class="text_1">категории</span>
+                    <span class="text_2">выберите любимый жанры</span>
+                </h3>
                 <div class="categories" id="categories"></div>
             </nav>
         </div>
@@ -188,7 +201,9 @@
 
     <script src="./js/swiper/swiper-bundle.min.js"></script>
     <script src="./js/searchAnim/searchAnim.js"></script>
-    <script src="./js/main/main.js"></script>
+    <script src="./js/logoAnimation/logoAnimation.js"></script>
+    <script src="./js/mob_open_close/mob_open_close.js"></script>
+    <script src="./pages/index/index.js"></script>
 
 </body>
 

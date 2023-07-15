@@ -131,13 +131,48 @@ function showPoster_andData() {
     fetch(`${BASE_URL}/movie/${get_id}?language=${language}&` + API_KEY)
         .then(response => response.json())
         .then(R => {
-            console.log(R)
-            document.getElementById('about_film_poster').style.cssText = `background-image: url(${IMG_URL + R.poster_path});`
-            document.getElementById('about_film_info_title').textContent = R.title
-            document.getElementById('about_film_info_genres').textContent = `${R.genres[0].name}, ${R.genres[1].name}, ${R.genres[2].name}`
-            document.getElementById('about_film_info_release_date').textContent = R.release_date
-            document.getElementById('about_film_info_genres_vote_average').textContent=R.vote_average
+            // console.log(R);
+            function reytingStars() {
+                for (let i = 0; i < 10; i++) {
+                    let span = document.createElement('span')
+                    span.className = 'reyting_stars'
+                    document.querySelector('.reyting_stars_cont').appendChild(span)
 
+                    if (i <= Math.round(R.vote_average)) {
+                        document.querySelectorAll('.reyting_stars')[i].style.cssText = 'background-color: yellow'
+                    }
+                }
+            }
+            let about_film = document.getElementById('about_film')
+            about_film.style.cssText = `background-image: url(${'https://image.tmdb.org/t/p/original/' + R.backdrop_path})`
+            about_film.innerHTML = `
+            <h2 class="about_film_info_title">${R.title}</h2>
+            <div class="about_film_cont">
+                    <div class="about_film_poster">
+                        <img id="about_film_poster_img" src="${IMG_URL + R.poster_path}" alt="${R.title}">
+                    </div>
+
+                    <div class="about_film_info">
+                        <p class="about_film_info_release_date">
+                            <span>год выпуска - </span>
+                            <span>${R.release_date.replace(/-/g, " / ")}</span>
+                        </p>
+                        <p class="about_film_info_genres">
+                            <span>Жанр - </span>
+                            <span>${R.genres.map(el => (' ' + el.name))}</span>
+                        </p>
+                        <p class="about_film_info_genres_vote_average" id='about_film_info_genres_vote_average'>
+                            <span>рейтинг TMDB - </span>
+                            <span class='reyting_stars_cont'></span>
+                        </p>
+                            <p class="about_film_info_runtime">
+                            <span>длительность фильма - </span>
+                            <span>${R.runtime} мин.</span>
+                        </p>
+                    </div>
+            </div>`
+
+            reytingStars()
         })
         .catch(err => console.error(err));
 }

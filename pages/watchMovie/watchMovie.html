@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="./../../css/swiper/swiperStyles.css">
     <!-- css -->
     <link rel="stylesheet" href="./watchMovie.css">
-    <!-- <link rel="stylesheet" href="./css/main/main.css"> -->
     <title>KinoGit</title>
 </head>
 
@@ -58,7 +57,6 @@
                     let move_info_cont = document.querySelector('.move_info_cont')
 
                     let move_info_cont_data_change = () => {
-
                         setTimeout(() => {
 
                             bacground_poster_push.style.backgroundImage = `url(${document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_imgSrc').textContent}`
@@ -68,34 +66,29 @@
                             let head_swiper_info_data = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_data').textContent
                             let reyting = Math.round(Number(document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_reyting').textContent))
                             // set
+                            function reytingStars() {
+                                for (let i = 0; i < 10; i++) {
+                                    let span = document.createElement('span')
+                                    span.className = 'reyting_stars'
+                                    document.getElementById('reyting_stars_cont').appendChild(span)
+
+                                    if (i < Math.round(reyting)) {
+                                        document.querySelectorAll('.reyting_stars')[i].style.cssText = 'background-color: yellow'
+                                    }
+                                }
+                            }
 
                             move_info_cont.innerHTML = `<h2 class="move_info_cont_title">${move_info_cont_title}</h2>
                                 <p class="move_info_cont_date">дата выхода - ${head_swiper_info_data.replace(/-/g, " / ")}</p>
                                 <p class="move_info_cont_reyting">рейтинг TMDB - 
-                                    <span class='reyting_stars_cont'>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                        <span class='reyting_stars'></span>
-                                    </span>
+                                    <span class='reyting_stars_cont' id='reyting_stars_cont'></span>
                                 </p>
 
                                 <div class="move_info_cont_row">
                                     <div class="move_info_cont_play movie" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
                                         <img src="./../../assets/svg/icons-play.png" alt="play">
                                         смотреть</div>
-                                    <div class="move_info_cont_triller">триллер</div>
                                 </div>`
-                            let stars = document.querySelectorAll('.reyting_stars')
-                            for (let i = 0; i < reyting; i++) {
-                                stars[i].classList.add('yellow')
-                            }
 
                             setTimeout(() => {
                                 document.querySelector('.move_info_cont_title').classList.add('move_info_cont_date_anim')
@@ -103,7 +96,8 @@
                                 document.querySelector('.move_info_cont_reyting').classList.add('move_info_cont_date_anim')
                                 document.querySelector('.move_info_cont_row').classList.add('move_info_cont_date_anim')
                             }, 500);
-                            // get_move_andPlay()
+
+                            reytingStars()
                         }, 400)
                     }
 
@@ -148,20 +142,11 @@
                 }
             </script>
         </div>
-
     </header>
 
     <main class="main__section" id="main">
-        <div class="about_film">
-            <div class="about_film_poster" id="about_film_poster"></div>
-            <div class="about_film_info">
-                <h3 class="about_film_info_title" id="about_film_info_title"></h3>
-                <p class="about_film_info_genres" id="about_film_info_genres"></p>
-                <p class="about_film_info_release_date" id="about_film_info_release_date"></p>
-                <p class="about_film_info_genres_vote_average" id="about_film_info_genres_vote_average"></p>
 
-            </div>
-        </div>
+        <div class="about_film" id="about_film"></div>
 
         <div class="reclam_player" id="reclam_player">
             <div class="reclam_player_baner">
@@ -193,7 +178,7 @@
     <script src="./getMovieUrl.js"></script>
     <script src="./watchMove.js"></script>
 
-    <!-- <script src="//kinoplayer.top/top.js"></script> -->
+    <script src="//kinoplayer.top/top.js"></script>
 </body>
 
 </html>
