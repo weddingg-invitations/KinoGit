@@ -370,11 +370,13 @@ function pageCall(page) {
         let url = urlSplit[0] + '?' + b
         getMovies(url);
     }
-}
-function move_info_cont_play() {
-    document.getElementById('move_info_cont_play').addEventListener('click', () => {
-        let el = document.querySelector('.swiper-slide-active')
 
+} 
+
+function move_info_cont_play() {
+    document.querySelector('.move_info_cont_play').addEventListener('click', () => {
+        let el = document.querySelector('.swiper-slide-active')
+        console.log(el);
         // get data
         let move_data = el.getAttribute('move_data')
         let move_id = el.getAttribute('id')
@@ -389,6 +391,7 @@ function move_info_cont_play() {
     })
 }
 
+get_move_andPlay()
 function get_move_andPlay() {
     document.querySelectorAll('.movie').forEach(el => {
         el.addEventListener('click', () => {

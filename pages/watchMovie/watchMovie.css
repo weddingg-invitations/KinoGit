@@ -502,10 +502,10 @@ header::before {
   border-radius: 0;
   width: 6px;
   height: 10px;
-  background-color: #ffb700;
+  background-color: #ffffff;
 }
 .head-swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ffb700;
+  background-color: #ffffff;
 }
 .head-swiper-pagination .swiper-pagination-bullet-active {
   transform: scale(1.4);

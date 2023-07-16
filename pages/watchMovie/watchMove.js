@@ -62,6 +62,7 @@ function get_top_movies() {
                 swiper_wrapper.appendChild(div)
             })
             headSwiper()
+            get_Watch_Move_andPlay()
         })
         .catch(err => console.error(err));
 }
@@ -82,7 +83,6 @@ search_inp.addEventListener('keydown', (e) => {
     } else {
         getMovies(API_URL);
     }
-    // if (e.code == 'Enter' || e.code == 'NumpadEnter') {}
 })
 
 function getMovies(url) {
@@ -175,4 +175,41 @@ function showPoster_andData() {
             reytingStars()
         })
         .catch(err => console.error(err));
+}
+
+function get_Watch_move_info_cont() {
+    document.querySelector('.move_info_cont_play').addEventListener('click', () => {
+        let el = document.querySelector('.swiper-slide-active')
+        // get data
+        let move_data = el.getAttribute('move_data')
+        let move_id = el.getAttribute('id')
+
+        console.log(move_id);
+        // save in localStorage
+        localStorage.setItem("move_data", `${move_data}`);
+        localStorage.setItem("move_id", `${move_id}`);
+
+        // location
+        window.location.href = './../../pages/watchMovie/watchMovie.html';
+    })
+}
+
+get_Watch_Move_andPlay()
+function get_Watch_Move_andPlay() {
+    document.querySelectorAll('.movie').forEach(el => {
+        el.addEventListener('click', () => {
+
+            // get data
+            let move_data = el.getAttribute('move_data')
+            let move_id = el.getAttribute('id')
+
+            console.log(move_id);
+            // save in localStorage
+            localStorage.setItem("move_data", `${move_data}`);
+            localStorage.setItem("move_id", `${move_id}`);
+
+            // location
+            window.location.href = './../../pages/watchMovie/watchMovie.html';
+        })
+    })
 }

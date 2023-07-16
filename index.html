@@ -88,7 +88,7 @@
                                 </p>
 
                                 <div class="move_info_cont_row">
-                                    <div class="move_info_cont_play movie" id="move_info_cont_play" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
+                                    <div class="move_info_cont_play movie" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
                                         <img src="./assets/svg/icons-play.png" alt="play">смотреть
                                     </div>
                                 </div>`
@@ -127,9 +127,9 @@
                             el: '.swiper-pagination',
                             clickable: true,
                         },
-                        // autoplay: {
-                        //     delay: 5000,
-                        // },
+                        autoplay: {
+                            delay: 5000,
+                        },
                         on: {
                             // -------- touch & move--------
                             sliderMove: function () {
