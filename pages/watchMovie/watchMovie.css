@@ -628,7 +628,8 @@ header::before {
   z-index: 4;
   padding: 30px 0;
   font-size: 30px;
-  color: #ffb700;
+  color: #ffffff;
+  text-shadow: 0 0 15px #000000;
 }
 
 .reclam_player {

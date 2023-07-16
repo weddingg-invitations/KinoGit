@@ -145,6 +145,7 @@ function showPoster_andData() {
             }
             let about_film = document.getElementById('about_film')
             about_film.style.cssText = `background-image: url(${'https://image.tmdb.org/t/p/original/' + R.backdrop_path})`
+            console.log(R.overview);
             about_film.innerHTML = `
             <h2 class="about_film_info_title">${R.title}</h2>
             <div class="about_film_cont">
@@ -157,18 +158,23 @@ function showPoster_andData() {
                             <span>год выпуска - </span>
                             <span>${R.release_date.replace(/-/g, " / ")}</span>
                         </p>
+
                         <p class="about_film_info_genres">
                             <span>Жанр - </span>
                             <span>${R.genres.map(el => (' ' + el.name))}</span>
                         </p>
+
                         <p class="about_film_info_genres_vote_average" id='about_film_info_genres_vote_average'>
                             <span>рейтинг TMDB - </span>
                             <span class='reyting_stars_cont'></span>
                         </p>
-                            <p class="about_film_info_runtime">
+
+                        <p class="about_film_info_runtime">
                             <span>длительность фильма - </span>
                             <span>${R.runtime} мин.</span>
                         </p>
+
+                        <p class="about_film_info_overview">${R.overview}</p>
                     </div>
             </div>`
 

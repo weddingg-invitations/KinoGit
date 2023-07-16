@@ -696,7 +696,8 @@ header {
     z-index: 4;
     padding: 30px 0;
     font-size: 30px;
-    color: $colororange;
+    color: $colorWhite;
+    text-shadow: 0 0 15px $colorBlack;
 }
 
 .reclam_player {

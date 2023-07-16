@@ -21,7 +21,6 @@ let totalPages = 100;
 let selectedGenre = []
 
 //TMDB themoviedb
-// ------------------
 
 let language = 'ru-RU'
 
@@ -108,7 +107,7 @@ const genres = [
         "name": "Телефильм"
     },
 ]
-// -----------------
+// top slider movies
 get_top_movies()
 function get_top_movies() {
     fetch(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY)
@@ -203,7 +202,7 @@ function highlightSelection() {
     }
 }
 // получить фильмы
-getMovies(API_URL);
+getMovies(API_URL)
 function getMovies(url) {
     lastUrl = url;
 
@@ -270,21 +269,19 @@ function showMovies(data) {
         movieEl.className = 'movie'
         movieEl.id = el.id
         movieEl.setAttribute('move_data', `${el.title} ${el.original_title} ${String(el.release_date).slice(0, 4)}/`)
-        // есле у фильма отсутствует название не показывать фильм ???
+        // есле у фильма отсутствует название не показывать фильм
         if (Boolean(el.title) && el.poster_path) {
             movieEl.innerHTML = `
             <img src="${IMG_URL + el.poster_path}" alt="${el.title}">
             <div class="watch__now"><img src="./assets/svg/play-icon.svg" alt="play-button"></div>
-
             <div class="movie-info">
                 <h3 class="movie-info-title movie-title">${el.title}</h3>
                 <div class='movie-info-subtitle-cont'>
                     <p class="movie-info-paragraph">${String(el.release_date).slice(0, 4)}</p>
                     <span class="movie-info-reyting ${getColor(el.vote_average)}">${String(el.vote_average).slice(0, 3)}</span>
                 </div>
-            </div>
-            `
-            main__section__films.appendChild(movieEl);
+            </div>`
+            main__section__films.appendChild(movieEl)
         }
     })
 }
