@@ -303,7 +303,7 @@ search_btn.addEventListener('click', (e) => {
     serchLogic(e)
 })
 // search_inp
-search_inp.addEventListener('keydown', (e) => {
+search_inp.addEventListener('keyup', (e) => {
     serchLogic(e)
 })
 // serch click logic
@@ -337,15 +337,29 @@ next.addEventListener('click', () => {
 
 document.getElementById('top_movies').addEventListener('click', () => {
     getMovies(`https://api.themoviedb.org/3/discover/movie?${API_KEY}&language=${language}?language=en-US&page=1&sort_by=popularity.desc&primary_release_date.gte=${thisYear}-01-01`)
+    document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 })
 
 document.getElementById('animation').addEventListener('click', () => {
     getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=16`)
+    document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 })
 
 document.getElementById('action').addEventListener('click', () => {
     getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=28`)
+    document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 })
+
+document.getElementById('comedy').addEventListener('click', () => {
+    getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=35`)
+    document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
+})
+
+document.getElementById('Family').addEventListener('click', () => {
+    getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=10751`)
+    document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
+})
+
 // нумерация страниц
 function pagination_click() {
     document.querySelectorAll('#pages').forEach(p => {
@@ -371,7 +385,7 @@ function pageCall(page) {
         getMovies(url);
     }
 
-} 
+}
 
 function move_info_cont_play() {
     document.querySelector('.move_info_cont_play').addEventListener('click', () => {

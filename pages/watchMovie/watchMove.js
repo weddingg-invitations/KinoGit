@@ -177,6 +177,45 @@ function showPoster_andData() {
         .catch(err => console.error(err));
 }
 
+document.getElementById('top_movies').addEventListener('click', (e) => {
+    getMovies(`https://api.themoviedb.org/3/discover/movie?${API_KEY}&language=${language}?language=en-US&page=1&sort_by=popularity.desc&primary_release_date.gte=${thisYear}-01-01`)
+    click_js()
+})
+
+document.getElementById('animation').addEventListener('click', (e) => {
+    getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=16`)
+    click_js()
+})
+
+document.getElementById('action').addEventListener('click', (e) => {
+    getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=28`)
+    click_js()
+})
+
+document.getElementById('comedy').addEventListener('click', (e) => {
+    getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=35`)
+    click_js()
+})
+
+document.getElementById('Family').addEventListener('click', (e) => {
+    getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}&with_genres=10751`)
+    click_js()
+})
+
+function click_js() {
+    let search_input = document.getElementById('search_inp')
+    let search = document.getElementById('search')
+    search.classList.add('search-anime-inp')
+    search_close.classList.add('search-anime-close')
+    search_buttone.classList.add('search-btn-active')
+    search_input.value = ''
+    search.offsetWidth < 50 ? search_input.focus() : false;
+
+    if (document.getElementById('search__films__cont')) {
+        search__films__cont.innerHTML = ''
+    }
+}
+
 function get_Watch_move_info_cont() {
     document.querySelector('.move_info_cont_play').addEventListener('click', () => {
         let el = document.querySelector('.swiper-slide-active')
@@ -184,13 +223,12 @@ function get_Watch_move_info_cont() {
         let move_data = el.getAttribute('move_data')
         let move_id = el.getAttribute('id')
 
-        console.log(move_id);
         // save in localStorage
-        localStorage.setItem("move_data", `${move_data}`);
-        localStorage.setItem("move_id", `${move_id}`);
+        localStorage.setItem("move_data", `${move_data}`)
+        localStorage.setItem("move_id", `${move_id}`)
 
         // location
-        window.location.href = './../../pages/watchMovie/watchMovie.html';
+        window.location.href = './../../pages/watchMovie/watchMovie.html'
     })
 }
 
@@ -198,12 +236,10 @@ get_Watch_Move_andPlay()
 function get_Watch_Move_andPlay() {
     document.querySelectorAll('.movie').forEach(el => {
         el.addEventListener('click', () => {
-
             // get data
             let move_data = el.getAttribute('move_data')
             let move_id = el.getAttribute('id')
 
-            console.log(move_id);
             // save in localStorage
             localStorage.setItem("move_data", `${move_data}`);
             localStorage.setItem("move_id", `${move_id}`);

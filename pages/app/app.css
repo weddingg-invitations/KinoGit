@@ -32,6 +32,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #131313;
+  overflow-x: hidden;
 }
 
 header {
@@ -39,6 +40,7 @@ header {
 }
 
 .head-top-cont {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,17 +69,6 @@ header {
   }
 }
 
-.links-cont .links {
-  font-size: 18px;
-  margin-left: 5px;
-  transition: 250ms;
-  padding-bottom: 0px;
-}
-.links-cont .links:hover {
-  border-bottom: 1px solid;
-  padding-bottom: 4px;
-}
-
 main {
   padding: 40px 50px;
 }
@@ -99,4 +90,46 @@ main .app-Polic-cont p {
 }
 main .app-Polic-cont span {
   color: #ffa200;
+}
+
+.links-cont .links {
+  font-size: 18px;
+  margin-left: 5px;
+  transition: 250ms;
+  padding-bottom: 0px;
+  transition: 350px;
+}
+.links-cont .links:hover {
+  border-bottom: 1px solid;
+  padding-bottom: 4px;
+}
+
+.mob_open_close {
+  width: 40px;
+  display: none;
+  transition: 250ms;
+  cursor: pointer;
+}
+.mob_open_close:hover {
+  filter: drop-shadow(0 0 6px #ffffff);
+}
+
+@media screen and (max-width: 600px) {
+  .mob_open_close {
+    display: inline-block;
+  }
+  .links-cont {
+    position: absolute;
+    right: -300px;
+    top: 55px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    line-height: 35px;
+    background-color: #0c0c0c;
+    transition: 350ms ease-in-out;
+  }
+  .links-cont-active {
+    right: 0;
+  }
 }/*# sourceMappingURL=app.css.map */
