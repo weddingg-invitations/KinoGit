@@ -861,8 +861,16 @@ header::before {
   }
 }
 @media screen and (max-width: 460px) {
-  .about_film_cont {
-    width: 90%;
+  header {
+    background-size: contain;
+    height: 65vh;
+  }
+  .head-swiper-wrapper {
+    bottom: 10px;
+  }
+  .head-swiper-slide {
+    width: 80px;
+    height: 125px;
   }
   .categories {
     width: 100%;

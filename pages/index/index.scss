@@ -976,6 +976,20 @@ footer {
 }
 
 @media screen and (max-width: 460px) {
+    header {
+        background-size: contain;
+        height: 65vh;
+    }
+
+    .head-swiper-wrapper {
+        bottom: 10px
+    }
+
+    .head-swiper-slide {
+        width: 80px;
+        height: 125px;
+    }
+
     .categories {
         width: 100%;
         display: grid;
