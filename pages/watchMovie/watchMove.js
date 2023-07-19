@@ -68,6 +68,7 @@ function get_top_movies() {
 }
 
 search_btn.addEventListener('click', () => {
+
     const searchTerm = search_inp.value;
     if (searchTerm) {
         getMovies(searchURL + '&query=' + searchTerm + `&language=${language}`)
@@ -76,7 +77,7 @@ search_btn.addEventListener('click', () => {
     }
 })
 
-search_inp.addEventListener('keydown', (e) => {
+search_inp.addEventListener('keydown', () => {
     const searchTerm = search_inp.value;
     if (searchTerm) {
         getMovies(searchURL + '&query=' + searchTerm + `&language=${language}?language=en-EN`)
@@ -85,6 +86,7 @@ search_inp.addEventListener('keydown', (e) => {
     }
 })
 
+
 function getMovies(url) {
     lastUrl = url;
 
@@ -92,6 +94,7 @@ function getMovies(url) {
 
         if (data.results.length !== 0) {
             showMovies(data.results);
+            get_Watch_Move_andPlay()
         } else {
             search__films__cont.innerHTML = `<h3 class="no-results">No Results Found</h3>`
         }
@@ -216,8 +219,8 @@ function click_js() {
     search.classList.add('search-anime-inp')
     search_close.classList.add('search-anime-close')
     search_buttone.classList.add('search-btn-active')
-    search_input.value = ''
     search.offsetWidth < 50 ? search_input.focus() : false;
+    search_input.value = ''
 
     if (document.getElementById('search__films__cont')) {
         search__films__cont.innerHTML = ''
