@@ -21,25 +21,6 @@
   background: #ffb700;
 }
 
-.videoStylesOff {
-  display: none !important;
-}
-
-.menu {
-  display: none !important;
-}
-
-.video-player {
-  width: 50%;
-  min-width: 650px;
-  margin: 0 auto 100px;
-}
-
-.top-left_2-xxL {
-  position: relative;
-  left: 70px !important;
-}
-
 .orange {
   color: #ffea00;
 }
@@ -326,6 +307,13 @@ header::before {
   transition: 800ms;
   transform: translateX(-30px);
   opacity: 0;
+}
+.move_info_cont .move_info_cont_reyting img {
+  width: 70px;
+}
+.move_info_cont .reyting_stars_cont {
+  position: relative;
+  top: 2px;
 }
 .move_info_cont .move_info_cont_row {
   display: flex;
@@ -668,6 +656,68 @@ header::before {
           clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
+.videoStylesOff {
+  display: none !important;
+}
+
+.menu {
+  display: none !important;
+}
+
+.players-cont {
+  width: 65%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+.slect-player {
+  display: flex;
+}
+
+.slect-player-btn {
+  font-size: 13px;
+  background-color: rgb(192, 136, 33);
+  color: #000000;
+  padding: 1px 22px;
+  margin-right: -20px;
+  font-weight: 600;
+  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 4% 100%);
+          clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 4% 100%);
+  cursor: pointer;
+  transition: 350ms;
+}
+.slect-player-btn:nth-child(1) {
+  -webkit-clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+  padding-left: 7px;
+}
+
+.slect-player-btn-active {
+  background-color: #ffb700;
+}
+
+.video-players {
+  display: none;
+}
+
+.video-player-active {
+  display: block;
+}
+
+.top-left_2-xxL {
+  position: relative;
+  left: 70px !important;
+}
+
+.recomendet-films-cont {
+  display: flex;
+  width: 80%;
+  min-height: 300px;
+  background: black;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
 .all-info {
   display: flex;
   align-items: center;
@@ -731,10 +781,9 @@ header::before {
   footer .pages:nth-child(9) {
     display: none;
   }
-  .head-swiper-wrapper {
-    margin-bottom: 40px;
-  }
   header {
+    background-size: contain;
+    height: 65vh;
     margin-bottom: 140px;
   }
   .move_info_cont,
@@ -755,8 +804,6 @@ header::before {
   }
   .main_films_categories_cont {
     padding-top: 0;
-  }
-  .main_films_categories_cont {
     flex-direction: column-reverse;
   }
   .right-nav {
@@ -789,8 +836,6 @@ header::before {
   .about_film_cont {
     width: 90%;
   }
-}
-@media screen and (max-width: 600px) {
   .about_film_info_title {
     font-size: 25px;
   }
@@ -855,15 +900,9 @@ header::before {
   .reclam_player_baner {
     font-size: 12px;
   }
-  .video-player {
+  .video-players {
     min-width: inherit;
     width: 90%;
-  }
-}
-@media screen and (max-width: 460px) {
-  header {
-    background-size: contain;
-    height: 65vh;
   }
   .head-swiper-wrapper {
     bottom: 10px;

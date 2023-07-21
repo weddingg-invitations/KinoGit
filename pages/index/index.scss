@@ -263,9 +263,18 @@ header {
 
     .move_info_cont_reyting {
         margin-bottom: 35px;
-        transition: 500ms ease-out;
-        transform: translateX(-50px);
+        transition: 800ms;
+        transform: translateX(-30px);
         opacity: 0;
+
+        img {
+            width: 70px;
+        }
+    }
+
+    .reyting_stars_cont {
+        position: relative;
+        top: 2px;
     }
 
     .move_info_cont_row {
@@ -813,7 +822,7 @@ footer {
 }
 
 // @media
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 900px) {
     .main__section__films .movie {
         width: 40%;
     }
@@ -922,7 +931,12 @@ footer {
 }
 
 // _______---------------------------------------------------------------------
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
+    header {
+        background-size: contain;
+        height: 65vh;
+    }
+
     .mob_open_close {
         display: inline-block;
     }
@@ -971,13 +985,6 @@ footer {
     .head-top-nav-items {
         margin-bottom: 10px;
         font-size: 17px;
-    }
-}
-
-@media screen and (max-width: 460px) {
-    header {
-        background-size: contain;
-        height: 65vh;
     }
 
     .head-swiper-wrapper {

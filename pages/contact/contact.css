@@ -1,21 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-.orange {
-  color: #ffea00;
-}
-
-.green {
-  color: lawngreen;
-}
-
-.red {
-  color: #ff0000;
-}
-
-.disabled {
-  opacity: 0.5;
-  cursor: auto;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,7 +12,22 @@ body {
   margin: 0;
   padding: 0;
   background-color: #131313;
+  color: #ffffff;
   overflow-x: hidden;
+}
+
+span {
+  color: #d28e18;
+}
+
+.link {
+  color: orange;
+  font-weight: bold;
+  margin: 10px auto;
+  display: inline-block;
+}
+.link:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -41,28 +39,24 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: #ffffff;
-  background-color: #0c0c0c;
+  background-color: #1e1e1e;
   box-shadow: 0 0 25px 0 #000000;
   padding: 0 25px;
 }
 
 .logo {
-  transition: 350ms;
-  animation: blur 1s ease-out infinite;
-  text-shadow: 0px 0px 5px #ffffff;
   font-size: 30px;
   padding: 5px;
+  font-weight: 400;
+  animation: blur1 10s ease-out infinite;
+  overflow: hidden;
   cursor: pointer;
 }
-.logo:hover {
-  transform: translate(1px, 1px);
-  text-shadow: 0px 0px 10px #ffffff, 0px 0px 25px #ffffff;
+.logo span {
+  color: #d28e18;
 }
-@keyframes blur {
-  from {
-    text-shadow: 0px 0px 10px #ffffff, 0px 0px 25px #ffffff;
-  }
+.logo:hover {
+  text-shadow: 0 0 5px #d28e18;
 }
 
 .links-cont .links {
@@ -78,29 +72,19 @@ header {
 
 main {
   padding: 40px 50px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 
-.instruction {
-  color: #ffffff;
-}
 .instruction h2 {
   text-align: center;
   margin-bottom: 30px;
-  color: #ffa200;
+  color: #d28e18;
 }
 .instruction h4 {
   margin: 10px 0;
-  color: #ffa200;
+  color: #d28e18;
 }
 .instruction p {
-  color: #ffffff;
   margin: 5px 20px;
-}
-.instruction span {
-  color: #ffa200;
 }
 
 footer {
@@ -110,12 +94,8 @@ footer p {
   font-size: 13px;
   text-align: center;
   font-weight: 600;
-  color: #ffa200;
 }
 footer p span {
-  -webkit-user-select: auto;
-     -moz-user-select: auto;
-          user-select: auto;
   text-decoration: underline;
 }
 

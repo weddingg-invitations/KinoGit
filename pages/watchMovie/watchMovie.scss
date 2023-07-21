@@ -33,26 +33,6 @@ $colororange: #ffb700;
 
 // ------------------------------
 
-// videoplayer styles
-.videoStylesOff {
-    display: none !important;
-}
-
-.menu {
-    display: none !important;
-}
-
-.video-player {
-    width: 50%;
-    min-width: 650px;
-    margin: 0 auto 100px;
-}
-
-.top-left_2-xxL {
-    position: relative;
-    left: 70px !important;
-}
-
 // reyting class add
 .orange {
     color: #ffea00;
@@ -357,6 +337,15 @@ header {
         transition: 800ms;
         transform: translateX(-30px);
         opacity: 0;
+
+        img {
+            width: 70px;
+        }
+    }
+
+    .reyting_stars_cont {
+        position: relative;
+        top: 2px;
     }
 
     .move_info_cont_row {
@@ -738,6 +727,69 @@ header {
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
+// videoplayer styles
+.videoStylesOff {
+    display: none !important;
+}
+
+.menu {
+    display: none !important;
+}
+
+.players-cont {
+    width: 65%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.slect-player {
+    display: flex;
+}
+
+.slect-player-btn {
+    font-size: 13px;
+    background-color: rgb(192, 136, 33);
+    color: $colorBlack;
+    padding: 1px 22px;
+    margin-right: -20px;
+    font-weight: 600;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 4% 100%);
+    cursor: pointer;
+    transition: 350ms;
+
+    &:nth-child(1) {
+        clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+        padding-left: 7px;
+    }
+}
+
+.slect-player-btn-active {
+    background-color: $colororange;
+}
+
+.video-players {
+    display: none;
+}
+
+.video-player-active {
+    display: block;
+}
+
+.top-left_2-xxL {
+    position: relative;
+    left: 70px !important;
+}
+
+// recomendet films
+.recomendet-films-cont {
+    display: flex;
+    width: 80%;
+    min-height: 300px;
+    background: black;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
 //  footer
 .all-info {
     display: flex;
@@ -818,11 +870,9 @@ header {
         }
     }
 
-    .head-swiper-wrapper {
-        margin-bottom: 40px;
-    }
-
     header {
+        background-size: contain;
+        height: 65vh;
         margin-bottom: 140px;
     }
 
@@ -849,9 +899,6 @@ header {
 
     .main_films_categories_cont {
         padding-top: 0;
-    }
-
-    .main_films_categories_cont {
         flex-direction: column-reverse;
     }
 
@@ -891,10 +938,7 @@ header {
     .about_film_cont {
         width: 90%;
     }
-}
 
-// _______---------------------------------------------------------------------
-@media screen and (max-width: 600px) {
     .about_film_info_title {
         font-size: 25px;
     }
@@ -973,16 +1017,9 @@ header {
         font-size: 12px;
     }
 
-    .video-player {
+    .video-players {
         min-width: inherit;
         width: 90%;
-    }
-}
-
-@media screen and (max-width: 460px) {
-    header {
-        background-size: contain;
-        height: 65vh;
     }
 
     .head-swiper-wrapper {

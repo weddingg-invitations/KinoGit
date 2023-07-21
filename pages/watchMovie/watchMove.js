@@ -30,7 +30,84 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + `/search/movie?` + API_KEY;
-
+const genres = [
+    {
+        "id": 12,
+        "name": "приключения"
+    },
+    {
+        "id": 14,
+        "name": "фантастика"
+    },
+    {
+        "id": 16,
+        "name": "анимация"
+    },
+    {
+        "id": 18,
+        "name": "драма"
+    },
+    {
+        "id": 27,
+        "name": "ужасы"
+    },
+    {
+        "id": 28,
+        "name": "боевик"
+    },
+    {
+        "id": 35,
+        "name": "комедия"
+    },
+    {
+        "id": 36,
+        "name": "история"
+    },
+    {
+        "id": 37,
+        "name": "вестерн"
+    },
+    {
+        "id": 53,
+        "name": "триллер"
+    },
+    {
+        "id": 80,
+        "name": "криминал"
+    },
+    {
+        "id": 99,
+        "name": "документальный"
+    },
+    {
+        "id": 878,
+        "name": "научная фантастика"
+    },
+    {
+        "id": 9648,
+        "name": "детектив"
+    },
+    {
+        "id": 10402,
+        "name": "музыка"
+    },
+    {
+        "id": 10751,
+        "name": "семейный"
+    },
+    {
+        "id": 10752,
+        "name": "война"
+    },
+    {
+        "id": 10749,
+        "name": "романтика"
+    },
+    {
+        "id": 10770,
+        "name": "телефильм"
+    },
+]
 // -----------------
 get_top_movies()
 function get_top_movies() {
@@ -86,7 +163,6 @@ search_inp.addEventListener('keydown', () => {
     }
 })
 
-
 function getMovies(url) {
     lastUrl = url;
 
@@ -134,7 +210,6 @@ function showPoster_andData() {
     fetch(`${BASE_URL}/movie/${get_id}?language=${language}&` + API_KEY)
         .then(response => response.json())
         .then(R => {
-            // console.log(R);
             function reytingStars() {
                 for (let i = 0; i < 10; i++) {
                     let span = document.createElement('span')
@@ -148,7 +223,6 @@ function showPoster_andData() {
             }
             let about_film = document.getElementById('about_film')
             about_film.style.cssText = `background-image: url(${'https://image.tmdb.org/t/p/original/' + R.backdrop_path})`
-            console.log(R.overview);
             about_film.innerHTML = `
             <h2 class="about_film_info_title">${R.title}</h2>
             <div class="about_film_cont">
@@ -180,8 +254,16 @@ function showPoster_andData() {
                         <p class="about_film_info_overview">${R.overview}</p>
                     </div>
             </div>`
+            // let gen = []
 
+            // R.genres.forEach(g => gen.push(g.name))
+            // genres.forEach(Ng => gen.push(Ng.name))
+
+            // console.log(gen);
+            // // selectedGenre
+            // recomendet_movies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
             reytingStars()
+
         })
         .catch(err => console.error(err));
 }
@@ -258,5 +340,34 @@ function get_Watch_Move_andPlay() {
             // location
             window.location.href = './../../pages/watchMovie/watchMovie.html';
         })
+    })
+}
+
+function recomendet_movies(url) {
+    console.log(selectedGenre.join(','));
+    fetch(url).then(res => res.json()).then(data => {
+
+        if (data.results.length !== 0) {
+            data.results.forEach(el => {
+                let movieEl = document.createElement('div');
+                // есле у фильма отсутствует название не показывать фильм ???
+                if (Boolean(el.title) && el.poster_path) {
+                    movieEl.innerHTML = `
+                            <div class="watch__now">
+                                <img src="${IMG_URL + el.poster_path}" alt="${el.title}">
+                            </div>
+        
+                            <div class="movie-info">
+                                <h3 class="movie-info-title movie-title">${el.title}</h3>
+                                <p class="movie-info-paragraph">${String(el.release_date).slice(0, 4)}</p>
+                            </div>`
+
+                    document.getElementById('recomendet_films_cont').appendChild(movieEl);
+                }
+            })
+        }
+        // else {
+        //     search__films__cont.innerHTML = `<h3 class="no-results">No Results Found</h3>`
+        // }
     })
 }

@@ -25,7 +25,8 @@
             </a>
 
             <nav class="head-top-nav">
-                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span id="FullYear">2010</span></a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span
+                        id="FullYear">2010</span></a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="action">Премьеры</a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="animation">мультики</a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="comedy">комедии</a>
@@ -84,7 +85,7 @@
 
                             move_info_cont.innerHTML = `<h2 class="move_info_cont_title">${move_info_cont_title}</h2>
                                 <p class="move_info_cont_date">дата выхода - ${head_swiper_info_data.replace(/-/g, " / ")}</p>
-                                <p class="move_info_cont_reyting">рейтинг TMDB - 
+                                <p class="move_info_cont_reyting">рейтинг <img src="../../assets/svg/TMDB-icon.svg" alt="TMDB-icon">
                                     <span class='reyting_stars_cont' id='reyting_stars_cont'></span>
                                 </p>
 
@@ -159,10 +160,26 @@
             </div>
         </div>
 
-        <!-- kinoplayer -->
-        <div class="video-player" id="video_player">
-            <div id="kinoplayertop" data-player-active="tabus" data-title="" data-shearch="false" data-bg="#131313"
-                data-ratio="1by1 "></div>
+        <!-- players -->
+        <div class="players-cont">
+            <div class="slect-player">
+                <p class="slect-player-btn slect-player-btn-active">player 1</p>
+                <p class="slect-player-btn">player 2</p>
+            </div>
+
+            <div class="video-players video-player-active">
+                <div id="yohoho" data-title="Тайна Коко"></div>
+            </div>
+
+            <div class="video-players">
+                <div id="kinoplayertop" data-player-active="tabus" data-title="" data-shearch="false" data-bg="#131313"
+                    data-ratio="1by1 ">
+                </div>
+            </div>
+        </div>
+
+        <div class="recomendet-films-cont" id="recomendet_films_cont">
+            
         </div>
     </main>
 
@@ -186,6 +203,7 @@
     <script src="./watchMove.js"></script>
 
     <script src="//kinoplayer.top/top.js"></script>
+    <script src="//yohoho.cc/yo.js"></script>
 </body>
 
 </html>
