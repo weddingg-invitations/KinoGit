@@ -283,7 +283,6 @@ function showMovies(data) {
                 </div>
             </div>`
             main__section__films.appendChild(movieEl)
-            console.log(el);
         }
     })
 }
@@ -389,12 +388,10 @@ function pageCall(page) {
 function move_info_cont_play() {
     document.querySelector('.move_info_cont_play').addEventListener('click', () => {
         let el = document.querySelector('.swiper-slide-active')
-        console.log(el);
         // get data
         let move_data = el.getAttribute('move_data')
         let move_id = el.getAttribute('id')
 
-        console.log(move_id);
         // save in localStorage
         localStorage.setItem("move_data", `${move_data}`);
         localStorage.setItem("move_id", `${move_id}`);
@@ -413,7 +410,6 @@ function get_move_andPlay() {
             let move_data = el.getAttribute('move_data')
             let move_id = el.getAttribute('id')
 
-            console.log(move_id);
             // save in localStorage
             localStorage.setItem("move_data", `${move_data}`);
             localStorage.setItem("move_id", `${move_id}`);

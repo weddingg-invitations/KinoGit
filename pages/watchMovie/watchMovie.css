@@ -1003,6 +1003,9 @@ header::before {
   }
 }
 @media screen and (max-width: 500px) {
+  header {
+    margin-bottom: 85px;
+  }
   .recomendet-films-items .movie-title,
   .recomendet-films-items .movie-info-paragraph {
     font-size: 12px;
@@ -1017,6 +1020,21 @@ header::before {
     width: inherit;
     min-width: inherit;
     font-size: 12px;
+  }
+  .about_film_info_title {
+    text-align: center;
+  }
+  .about_film {
+    padding: 0;
+  }
+  .about_film_cont {
+    width: 90%;
+  }
+  .players-cont {
+    margin-bottom: 40px;
+  }
+  .recomendet-films-cont {
+    margin: 0 auto;
   }
 }
 @media screen and (max-width: 426px) {

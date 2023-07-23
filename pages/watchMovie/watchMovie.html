@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo-icon/logo2.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo-icon/logo-icon.jpg">
-    <link rel="mask-icon" type="image/png" sizes="16x16" href="./assets/logo-icon/logo-icon.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/logo-icon/logo2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/logo-icon/logo-icon.jpg">
+    <link rel="mask-icon" type="image/png" sizes="16x16" href="../../assets/logo-icon/logo-icon.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- loader -->
     <link rel="stylesheet" href="../../css/loader/loader.css">
@@ -199,9 +199,21 @@
             <!--swiper configs -->
             <script>
                 function recomendet_films_Swiper() {
+                    let slidesPerView_count = 7;
+
+                    if (window.innerWidth < 1300) {
+                        slidesPerView_count = 6
+                    }
+                    if (window.innerWidth < 1000) {
+                        slidesPerView_count = 4
+                    }
+                    if (window.innerWidth < 600) {
+                        slidesPerView_count = 3
+                    }
+
                     let swipers = new Swiper('#recomendet_films_cont', {
                         loop: true,
-                        slidesPerView: 4,
+                        slidesPerView: slidesPerView_count,
                         spaceBetween: 13,
                         freeMode: true,
                         autoplay: {
@@ -212,6 +224,10 @@
                             prevEl: '.recomendet-films-prev-unique',
                         },
                     })
+                }
+
+                window.onresize = function (e) {
+                    recomendet_films_Swiper()
                 }
             </script>
         </div>
@@ -225,6 +241,7 @@
             <nav class="navigation">
                 <a href="./../privacy-polic/privacy-polic.html">Правообладателям</a>
                 <a href="./../app/app.html">Приложение</a>
+                <a href="./../faq/fac.html">фэк</a>
                 <a href="./../contact/contact.html">Контакты</a>
             </nav>
         </div>

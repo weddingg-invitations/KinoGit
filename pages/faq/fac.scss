@@ -73,8 +73,6 @@ header {
 }
 
 .links-cont {
-    background-color: $colorBlack;
-
     .links {
         font-size: 18px;
         margin-left: 5px;
@@ -90,7 +88,6 @@ header {
 
 main {
     padding: 40px 50px;
-    text-align: center;
 }
 
 .instruction {
@@ -126,6 +123,8 @@ footer {
 }
 
 .links-cont {
+    background-color: $colorBlack;
+
     .links {
         font-size: 18px;
         margin-left: 5px;

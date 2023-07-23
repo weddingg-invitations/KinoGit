@@ -58,9 +58,6 @@ header {
   text-shadow: 0 0 5px #d28e18;
 }
 
-.links-cont {
-  background-color: #000000;
-}
 .links-cont .links {
   font-size: 18px;
   margin-left: 5px;
@@ -74,7 +71,6 @@ header {
 
 main {
   padding: 40px 50px;
-  text-align: center;
 }
 
 .instruction h2 {
@@ -102,6 +98,9 @@ footer p span {
   text-decoration: underline;
 }
 
+.links-cont {
+  background-color: #000000;
+}
 .links-cont .links {
   font-size: 18px;
   margin-left: 5px;
@@ -141,4 +140,4 @@ footer p span {
   .links-cont-active {
     right: 0;
   }
-}/*# sourceMappingURL=contact.css.map */
+}/*# sourceMappingURL=fac.css.map */
