@@ -18,7 +18,6 @@ let nextPage = 2;
 let prevPage = 3;
 let lastUrl = '';
 let totalPages = 100;
-let selectedGenre = []
 
 //TMDB themoviedb
 // ------------------
@@ -77,7 +76,7 @@ const genres = [
     },
     {
         "id": 99,
-        "name": "документальный"
+        "name": "документальный фильм"
     },
     {
         "id": 878,
@@ -254,16 +253,8 @@ function showPoster_andData() {
                         <p class="about_film_info_overview">${R.overview}</p>
                     </div>
             </div>`
-            // let gen = []
-
-            // R.genres.forEach(g => gen.push(g.name))
-            // genres.forEach(Ng => gen.push(Ng.name))
-
-            // console.log(gen);
-            // // selectedGenre
-            // recomendet_movies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
             reytingStars()
-
+            show_recomendet_films(R)
         })
         .catch(err => console.error(err));
 }
@@ -325,6 +316,18 @@ function get_Watch_move_info_cont() {
     })
 }
 
+function show_recomendet_films(R) {
+    let selectedGenre = []
+    genres.forEach(el => {
+        R.genres.forEach(el2 => {
+            if (el.name === el2.name)
+                selectedGenre.push(el2.id)
+        })
+    })
+    // selectedGenre
+    recomendet_movies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
+}
+
 get_Watch_Move_andPlay()
 function get_Watch_Move_andPlay() {
     document.querySelectorAll('.movie').forEach(el => {
@@ -344,30 +347,41 @@ function get_Watch_Move_andPlay() {
 }
 
 function recomendet_movies(url) {
-    console.log(selectedGenre.join(','));
     fetch(url).then(res => res.json()).then(data => {
 
         if (data.results.length !== 0) {
             data.results.forEach(el => {
                 let movieEl = document.createElement('div');
+                movieEl.className = 'movie swiper-slide recomendet-films-items'
+                movieEl.id = el.id
+                movieEl.setAttribute('move_data', `${el.title} , ${el.original_title} , ${String(el.release_date).slice(0, 4)}`)
                 // есле у фильма отсутствует название не показывать фильм ???
                 if (Boolean(el.title) && el.poster_path) {
                     movieEl.innerHTML = `
-                            <div class="watch__now">
-                                <img src="${IMG_URL + el.poster_path}" alt="${el.title}">
-                            </div>
-        
-                            <div class="movie-info">
-                                <h3 class="movie-info-title movie-title">${el.title}</h3>
-                                <p class="movie-info-paragraph">${String(el.release_date).slice(0, 4)}</p>
-                            </div>`
+                        <div class="watch__now">
+                            <img src="${IMG_URL + el.poster_path}" alt="${el.title}">
+                        </div>
 
-                    document.getElementById('recomendet_films_cont').appendChild(movieEl);
+                        <div class="movie-info">
+                            <h3 class="movie-info-title movie-title">${el.title}</h3>
+                            <p class="movie-info-paragraph">${String(el.release_date).slice(0, 4)}</p>
+                        </div>`
+                    document.getElementById('recomendet_films').appendChild(movieEl);
                 }
             })
         }
         // else {
         //     search__films__cont.innerHTML = `<h3 class="no-results">No Results Found</h3>`
         // }
+        recomendet_films_Swiper()
+        get_Watch_Move_andPlay()
     })
 }
+// loader off
+setTimeout(() => {
+    document.querySelector('.loader').style.opacity = '0'
+}, 500)
+
+setTimeout(() => {
+    document.querySelector('.loader').style.display = 'none'
+}, 1000)

@@ -15,16 +15,16 @@ document.getElementById('yohoho').setAttribute('data-title', get_move_data)
 // select player
 let slect_player_btn = document.querySelectorAll('.slect-player-btn')
 
-    slect_player_btn.forEach((el, i) => {
-        el.addEventListener('click', () => {
+slect_player_btn.forEach((el, i) => {
+    el.addEventListener('click', () => {
 
-            document.querySelectorAll('.video-players').forEach((off, off_i) => {
-                slect_player_btn[off_i].classList.remove('slect-player-btn-active')
-                off.classList.remove('video-player-active')
-            });
-
-            el.classList.add('slect-player-btn-active')
-            document.querySelectorAll('.video-players')[i].classList.add('video-player-active')
+        document.querySelectorAll('.video-players').forEach((off, off_i) => {
+            slect_player_btn[off_i].classList.remove('slect-player-btn-active')
+            off.classList.remove('video-player-active')
         });
+
+        el.classList.add('slect-player-btn-active')
+        document.querySelectorAll('.video-players')[i].classList.add('video-player-active')
     });
+});
 

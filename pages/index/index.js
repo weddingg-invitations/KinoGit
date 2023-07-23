@@ -278,10 +278,12 @@ function showMovies(data) {
                 <h3 class="movie-info-title movie-title">${el.title}</h3>
                 <div class='movie-info-subtitle-cont'>
                     <p class="movie-info-paragraph">${String(el.release_date).slice(0, 4)}</p>
+                    <span>${(el.adult == true) ? "Для взрослых 18+" : ""}</span>
                     <span class="movie-info-reyting ${getColor(el.vote_average)}">${String(el.vote_average).slice(0, 3)}</span>
                 </div>
             </div>`
             main__section__films.appendChild(movieEl)
+            console.log(el);
         }
     })
 }
@@ -421,3 +423,12 @@ function get_move_andPlay() {
         })
     })
 }
+
+// loader off
+setTimeout(() => {
+    document.querySelector('.loader').style.opacity = '0'
+}, 500)
+
+setTimeout(() => {
+    document.querySelector('.loader').style.display = 'none'
+}, 1000)

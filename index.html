@@ -7,6 +7,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/logo-icon/logo-icon.jpg">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo-icon/logo-icon.jpg">
     <link rel="mask-icon" type="image/png" sizes="16x16" href="./assets/logo-icon/logo-icon.jpg">
+    <!-- loader -->
+    <link rel="stylesheet" href="./css/loader/loader.css">
     <!-- helper -->
     <link rel="stylesheet" href="./css/helper/helper.css">
     <!-- fonts -->
@@ -16,7 +18,8 @@
     <link rel="stylesheet" href="./css/swiper/swiperStyles.css">
     <!-- main -->
     <link rel="stylesheet" href="./pages/index/index.css">
-    <title>KinoGit</title>
+
+    <title>KinoGid</title>
 </head>
 
 <body>
@@ -24,7 +27,7 @@
         <!-- head swiper container-->
         <div class="head-top-cont">
             <a href="./index.html" class="logo">
-                <h1>Kino<span>Git</span></h1>
+                <h1>Kino<span>Gid</span></h1>
             </a>
 
             <nav class="head-top-nav">
@@ -187,7 +190,7 @@
 
         <div class="all-info">
             <a href="./index.html" class="logo">
-                <h1>Kino<span>Git</span></h1>
+                <h1>Kino<span>Gid</span></h1>
             </a>
             <nav class="navigation">
                 <a href="./pages/privacy-polic/privacy-polic.html">Правообладателям</a>
@@ -195,6 +198,34 @@
                 <a href="./pages/contact/contact.html">Контакты</a>
             </nav>
         </div>
+
+        <div class="loader">
+            <div class="loader-wrapper">
+                <svg class="pl" viewBox="0 0 176 160" width="176px" height="160px" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="pl-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="hsl(33,90%,55%)" />
+                            <stop offset="30%" stop-color="hsl(33,90%,55%)" />
+                            <stop offset="100%" stop-color="hsl(3,90%,55%)" />
+                        </linearGradient>
+                    </defs>
+                    <g fill="none" stroke-width="16" stroke-linecap="round">
+                        <circle class="pl__ring" r="56" cx="88" cy="96" stroke="hsla(0,10%,10%,0.1)" />
+                        <path class="pl__worm1" d="M144,96A56,56,0,0,1,32,96" stroke="url(#pl-grad)"
+                            stroke-dasharray="43.98 307.87" />
+                        <path class="pl__worm2" d="M32,136V96s-.275-25.725,14-40" stroke="hsl(33,90%,55%)"
+                            stroke-dasharray="0 40 0 44" stroke-dashoffset="0.001" visibility="hidden" />
+                        <path class="pl__worm3" d="M144,136V96s.275-25.725-14-40" stroke="hsl(33,90%,55%)"
+                            stroke-dasharray="0 40 0 44" stroke-dashoffset="0.001" visibility="hidden" />
+                    </g>
+                </svg>
+
+                <div class="logo logo-loader">
+                    <h1>Kino<span>Gid</span></h1>
+                </div>
+            </div>
+        </div>
+
     </footer>
 
     <script src="./js/swiper/swiper-bundle.min.js"></script>
