@@ -1135,6 +1135,16 @@ header {
     .players-cont {
         width: 95%;
     }
+}
+
+@media screen and (max-width: 500px) {
+    .recomendet-films-items {
+
+        .movie-title,
+        .movie-info-paragraph {
+            font-size: 12px;
+        }
+    }
 
     .categories {
         width: 100%;
@@ -1145,16 +1155,6 @@ header {
         .categories__tag {
             width: inherit;
             min-width: inherit;
-            font-size: 12px;
-        }
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .recomendet-films-items {
-
-        .movie-title,
-        .movie-info-paragraph {
             font-size: 12px;
         }
     }

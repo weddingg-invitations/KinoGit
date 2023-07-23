@@ -997,6 +997,15 @@ footer {
     }
 
     .categories {
+        .categories__tag {
+            font-size: 12px;
+            box-shadow: -10px 0 15px $colorBlack;
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .categories {
         width: 100%;
         display: grid;
         grid-template-columns: auto auto;

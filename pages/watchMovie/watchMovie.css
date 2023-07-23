@@ -1001,6 +1001,12 @@ header::before {
   .players-cont {
     width: 95%;
   }
+}
+@media screen and (max-width: 500px) {
+  .recomendet-films-items .movie-title,
+  .recomendet-films-items .movie-info-paragraph {
+    font-size: 12px;
+  }
   .categories {
     width: 100%;
     display: grid;
@@ -1010,12 +1016,6 @@ header::before {
   .categories .categories__tag {
     width: inherit;
     min-width: inherit;
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .recomendet-films-items .movie-title,
-  .recomendet-films-items .movie-info-paragraph {
     font-size: 12px;
   }
 }

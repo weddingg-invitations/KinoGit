@@ -870,6 +870,12 @@ footer .pages-active {
     width: 80px;
     height: 125px;
   }
+  .categories .categories__tag {
+    font-size: 12px;
+    box-shadow: -10px 0 15px #000000;
+  }
+}
+@media screen and (max-width: 500px) {
   .categories {
     width: 100%;
     display: grid;
