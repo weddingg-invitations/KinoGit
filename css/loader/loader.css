@@ -15,14 +15,13 @@
     height: 100vh;
     z-index: 150;
 
-    /* background: var(--bg); */
     background: black;
     color: var(--fg);
     font: 1em/1.5 sans-serif;
     height: 100vh;
-    display: grid;
-    place-items: center;
-    /* transition: background-color var(--themeTrans); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 1s;
 }
 
@@ -40,6 +39,12 @@
 
 .logo-loader h1 {
     font-size: 18px !important;
+    color: white;
+}
+
+.logo-loader h1 span {
+    font-size: 18px !important;
+    color: orange;
 }
 
 .pl {

@@ -427,8 +427,8 @@ function get_move_andPlay() {
 // loader off
 setTimeout(() => {
     document.querySelector('.loader').style.opacity = '0'
-}, 500)
+}, 2000)
 
 setTimeout(() => {
     document.querySelector('.loader').style.display = 'none'
-}, 1000)
+}, 2500)
