@@ -833,7 +833,8 @@ header {
         &:hover {
             filter: drop-shadow(0 0 2px $colorWhite);
         }
-        &:active{
+
+        &:active {
             transition: 100ms;
             filter: drop-shadow(0 0 4px $colorWhite);
         }
