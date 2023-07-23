@@ -15,7 +15,8 @@
     height: 100vh;
     z-index: 150;
 
-    background: var(--bg);
+    /* background: var(--bg); */
+    background: black;
     color: var(--fg);
     font: 1em/1.5 sans-serif;
     height: 100vh;
