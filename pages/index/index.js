@@ -230,7 +230,7 @@ function getMovies(url) {
                 next.classList.remove('disabled')
             }
             get_move_andPlay()
-            document.getElementById('main').scrollIntoView({ behavior: 'smooth' })
+            document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 
         } else {
             main__section__films.innerHTML = `<h3 class="no-results">No Results Found</h3>`
@@ -317,7 +317,7 @@ function serchLogic(e) {
             getMovies(API_URL);
         }
         setTimeout(() => {
-            document.getElementById('main').scrollIntoView({ behavior: 'smooth' })
+            document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
         }, 150);
     }
 }
