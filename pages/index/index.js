@@ -229,11 +229,12 @@ function getMovies(url) {
                 prev.classList.remove('disabled');
                 next.classList.remove('disabled')
             }
+            get_move_andPlay()
+            document.getElementById('main').scrollIntoView({ behavior: 'smooth' })
 
         } else {
             main__section__films.innerHTML = `<h3 class="no-results">No Results Found</h3>`
         }
-        get_move_andPlay()
     })
 }
 // нумерация страниц
