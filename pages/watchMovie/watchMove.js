@@ -287,7 +287,7 @@ document.getElementById('Family').addEventListener('click', (e) => {
 function click_js() {
     let search_input = document.getElementById('search_inp')
     let search = document.getElementById('search')
-    let search_buttone = document.getElementById('search-btn-active')
+    let search_buttone = document.getElementById('search_btn')
 
     search.classList.add('search-anime-inp')
     search_close.classList.add('search-anime-close')

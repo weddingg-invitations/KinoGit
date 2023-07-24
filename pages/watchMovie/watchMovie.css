@@ -210,11 +210,10 @@ header::before {
   top: 1px;
   width: 24px;
   transition: 400ms;
-  transform: scale(0.1);
+  transform: scale(0);
   opacity: 0;
   cursor: pointer;
 }
-
 .search-btn-active {
   opacity: 1;
   transform: scale(1);
