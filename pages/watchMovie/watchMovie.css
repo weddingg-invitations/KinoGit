@@ -668,6 +668,9 @@ header::before {
   width: 65%;
   margin: 0 auto;
   margin-bottom: 100px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .slect-player {
