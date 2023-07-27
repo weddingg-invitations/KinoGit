@@ -383,7 +383,6 @@ function pageCall(page) {
         let url = urlSplit[0] + '?' + b
         getMovies(url);
     }
-
 }
 
 function move_info_cont_play() {

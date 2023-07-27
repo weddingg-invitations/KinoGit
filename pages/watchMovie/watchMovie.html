@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./../../css/helper/helper.css">
     <!-- fonts -->
     <link rel="stylesheet" href="./../../assets/fonts/TsukimiRounded/stylesheet.css">
+    <link rel="stylesheet" href="./../../assets/fonts/Inter/inter.css">
     <!-- swiper -->
     <link rel="stylesheet" href="./../../css/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./../../css/swiper/swiperStyles.css">
@@ -30,19 +31,19 @@
             </a>
 
             <nav class="head-top-nav">
-                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span
-                        id="FullYear">2010</span></a>
-                <a href="javascript:void(0)" class="head-top-nav-items" id="action">Премьеры</a>
-                <a href="javascript:void(0)" class="head-top-nav-items" id="animation">мультики</a>
-                <a href="javascript:void(0)" class="head-top-nav-items" id="comedy">комедии</a>
-                <a href="javascript:void(0)" class="head-top-nav-items" id="Family">Семейные</a>
-
                 <div class="search" id="search">
                     <input class="search-inp" id="search_inp" type="text">
                     <span class="search-close" id="search-close"></span>
                     <img src="./../../assets/svg/search-icon.svg" class="search-btn" id="search_btn">
                     <div class="search__films__cont" id="search__films__cont"></div>
                 </div>
+
+                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span
+                        id="FullYear">2010</span></a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="action">Премьеры</a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="animation">мультики</a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="comedy">комедии</a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="Family">Семейные</a>
             </nav>
 
             <div class="mob_open_close" id="mob_open_close">
@@ -74,24 +75,24 @@
                             let move_info_cont_original_title = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_original_title').textContent
                             let move_info_cont_title = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_title').textContent
                             let head_swiper_info_data = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_data').textContent
-                            let reyting = Math.round(Number(document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_reyting').textContent))
+                            let reyting = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_reyting').textContent
                             // set
                             function reytingStars() {
-                                for (let i = 0; i < 10; i++) {
-                                    let span = document.createElement('span')
-                                    span.className = 'reyting_stars'
-                                    document.getElementById('reyting_stars_cont').appendChild(span)
-
-                                    if (i < Math.round(reyting)) {
-                                        document.querySelectorAll('.reyting_stars')[i].style.cssText = 'background-color: yellow'
-                                    }
-                                }
+                                document.getElementById('reyting_stars_bg_width').style.width = `${reyting.replace('.', '0.')}%`
                             }
 
                             move_info_cont.innerHTML = `<h2 class="move_info_cont_title">${move_info_cont_title}</h2>
                                 <p class="move_info_cont_date">дата выхода - ${head_swiper_info_data.replace(/-/g, " / ")}</p>
-                                <p class="move_info_cont_reyting">рейтинг <img src="../../assets/svg/TMDB-icon.svg" alt="TMDB-icon">
-                                    <span class='reyting_stars_cont' id='reyting_stars_cont'></span>
+                                <p class="move_info_cont_reyting">рейтинг
+                                    <img class='tmbd-logo' src="../../assets/svg/TMDB-icon.svg" alt="TMDB-icon">
+                                    <span class='reyting_stars_cont' id='reyting_stars_cont'>
+                                        <span class='reyting_stars_bg_width' id='reyting_stars_bg_width'></span>
+                                        <img src='./../../assets/svg/yellowStar.png'>
+                                        <img src='./../../assets/svg/yellowStar.png'>
+                                        <img src='./../../assets/svg/yellowStar.png'>
+                                        <img src='./../../assets/svg/yellowStar.png'>
+                                        <img src='./../../assets/svg/yellowStar.png'>
+                                    </span>
                                 </p>
 
                                 <div class="move_info_cont_row">
@@ -150,6 +151,13 @@
                         }
                     })
                     move_info_cont_data_change()
+
+                    let stop_start_slide = () => {
+                        document.querySelector('.head-swiper-container').addEventListener('mouseenter', () => {
+                            swiper.disable()
+                        })
+                    }
+                    stop_start_slide()
                 }
             </script>
         </div>
@@ -212,7 +220,7 @@
                     }
 
                     let swipers = new Swiper('#recomendet_films_cont', {
-                        loop: true,
+                        // loop: true,
                         slidesPerView: slidesPerView_count,
                         spaceBetween: 13,
                         freeMode: true,
