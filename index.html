@@ -110,10 +110,9 @@
                             move_info_cont_play()
                         }, 400)
                     }
-
                     let swiper = new Swiper('.head-swiper-container', {
                         effect: 'coverflow',
-                        speed: 500,
+                        speed: 700,
                         centeredSlides: true,
                         slidesPerView: 'auto',
                         loop: true,
@@ -123,7 +122,7 @@
                             rotate: 0,
                             // scale:1.04,
                             slideShadows: true,
-                            stretch: -10,
+                            stretch: -5,
                         },
                         navigation: {
                             nextEl: '.swiper-button-next-unique',
@@ -134,7 +133,7 @@
                             clickable: true,
                         },
                         autoplay: {
-                            delay: 5000,
+                            delay: 4000,
                         },
                         on: {
                             // -------- touch & move--------
@@ -145,18 +144,24 @@
                             // -------- if buttones activete run this || autoplay--------
                             slideChange: function () {
                                 move_info_cont_data_change()
+                                enrer_Out()
                             },
                         }
                     })
+
                     move_info_cont_data_change()
 
-                    // let stop_start_slide = () => {
-                    //     document.querySelector('.head-swiper-container').addEventListener('mouseenter', () => {
-                    //         swiper.disable()
-                    //     })
-                    // }
-                    // stop_start_slide()
+                    function enrer_Out() {
+                        const move_info_cont = document.querySelector('.move_info_cont')
+                        move_info_cont.addEventListener('mouseenter', () => { swiper.autoplay.stop() })
+                        move_info_cont.addEventListener('mouseleave', () => { swiper.autoplay.start() })
+
+                        const head_swiper_wrapper = document.getElementById('head-swiper-wrapper')
+                        head_swiper_wrapper.addEventListener('mouseenter', () => { swiper.autoplay.stop() })
+                        head_swiper_wrapper.addEventListener('mouseleave', () => { swiper.autoplay.start() })
+                    }
                 }
+
             </script>
         </div>
 

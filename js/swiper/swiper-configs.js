@@ -73,7 +73,9 @@
 //     updateOnWindowResize: true,
 // });
 // // swiper.autoplay.resume()    //autoplay resume
+// // swiper.autoplay.stop();     //autoplay stop
 // // swiper.autoplay.start()     //autoplay start
+
 
 // // swiper.disable()             //Отключите Swiper (если он был включен)
 // // swiper.enable()              //Включить Swiper (если он был отключен)
