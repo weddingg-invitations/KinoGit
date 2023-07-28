@@ -75,9 +75,6 @@
                             let head_swiper_info_data = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_data').textContent
                             let reyting = document.querySelector('.swiper-slide-active>.head_swiper_info>.head_swiper_info_reyting').textContent
                             // set
-                            function reytingStars() {
-                                document.getElementById('reyting_stars_bg_width').style.width = `${reyting.replace('.', '0.')}%`
-                            }
 
                             document.querySelector('.move_info_cont').innerHTML = `<h2 class="move_info_cont_title">${move_info_cont_title}</h2>
                                 <p class="move_info_cont_date">дата выхода - ${head_swiper_info_data.replace(/-/g, " / ")}</p>
@@ -106,13 +103,18 @@
                                 document.querySelector('.move_info_cont_row').classList.add('move_info_cont_date_anim')
                             }, 500);
 
+
+                            let reytingStars = () => {
+                                document.getElementById('reyting_stars_bg_width').style.width = `${reyting.replace('.', '0.')}%`
+                            }
                             reytingStars()
+
                             move_info_cont_play()
-                        }, 400)
+                        }, 500)
                     }
                     let swiper = new Swiper('.head-swiper-container', {
                         effect: 'coverflow',
-                        speed: 700,
+                        speed: 350,
                         centeredSlides: true,
                         slidesPerView: 'auto',
                         loop: true,

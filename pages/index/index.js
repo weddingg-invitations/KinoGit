@@ -129,12 +129,14 @@ function get_top_movies() {
 					</div>
 
 					<div class="head_swiper_info" style="display:none">
-                        <span class="head_swiper_info_imgSrc">https://image.tmdb.org/t/p/original/${el.backdrop_path}</span>
+                        <span class="head_swiper_info_imgSrc">${((window.innerWidth > 650) ? 'https://image.tmdb.org/t/p/original' : 'http://image.tmdb.org/t/p/w500')}${el.backdrop_path}</span>
                         <h2 class="head_swiper_info_original_title">${el.original_title}</h2>
 						<h2 class="head_swiper_info_title">${el.title}</h2>
                         <span class="head_swiper_info_reyting">${String(el.vote_average).slice(0, 3)}</span>
                         <span class="head_swiper_info_data">${el.release_date}</span>
 					</div>`
+                // http://image.tmdb.org/t/p/w500/
+                console.log(window.innerWidth < 700);
                 swiper_wrapper.appendChild(div)
             })
             headSwiper()
