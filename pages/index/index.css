@@ -811,10 +811,26 @@ footer .pages-active {
   }
   header {
     margin-bottom: 140px;
+    background-position: 0 195px;
   }
-  .move_info_cont,
-  header::before {
-    display: none;
+  .move_info_cont {
+    margin-top: 90px;
+  }
+  .move_info_cont .move_info_cont_title {
+    font-size: 16px;
+  }
+  .move_info_cont .move_info_cont_date {
+    font-size: 13px;
+  }
+  .move_info_cont .move_info_cont_reyting {
+    font-size: 13px;
+  }
+  .move_info_cont .move_info_cont_play {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+  .move_info_cont .move_info_cont_play img {
+    width: 18px;
   }
   .head-top-nav-items {
     font-size: 13px;
