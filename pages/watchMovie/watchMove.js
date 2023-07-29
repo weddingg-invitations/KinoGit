@@ -377,6 +377,22 @@ function recomendet_movies(url) {
         get_Watch_Move_andPlay()
     })
 }
+
+window.addEventListener('scroll', () => {
+    if (scrollY > 500) {
+        document.getElementById('arrow_to_top').style.cssText = 'right:20px'
+    }else{
+        document.getElementById('arrow_to_top').style.cssText = 'right:-60px'
+    }
+})
+
+document.getElementById('arrow_to_top').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+})
+
 // loader off
 setTimeout(() => {
     document.querySelector('.loader').style.opacity = '0'

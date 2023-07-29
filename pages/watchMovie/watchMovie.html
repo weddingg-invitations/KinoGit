@@ -186,14 +186,15 @@
             </div>
 
             <div class="video-players video-player-active">
-                <div id="yohoho" data-title="Тайна Коко"></div>
-            </div>
-
-            <div class="video-players">
                 <div id="kinoplayertop" data-player-active="tabus" data-title="" data-shearch="false" data-bg="#131313"
                     data-ratio="1by1 ">
                 </div>
             </div>
+
+            <div class="video-players">
+                <div id="yohoho" data-title="Тайна Коко"></div>
+            </div>
+
         </div>
 
         <div class="recomendet-films-cont">
@@ -230,7 +231,8 @@
                         spaceBetween: 13,
                         freeMode: true,
                         autoplay: {
-                            delay: 4000
+                            delay: 4000,
+                            pauseOnMouseEnter: true,
                         },
                         navigation: {
                             nextEl: '.recomendet-films-next-unique',
@@ -245,6 +247,12 @@
             </script>
         </div>
     </main>
+
+    <div class="arrow-to-top" id="arrow_to_top">
+        <div>
+            <div></div>
+        </div>
+    </div>
 
     <footer>
         <div class="all-info">

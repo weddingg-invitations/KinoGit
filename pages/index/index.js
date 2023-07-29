@@ -135,8 +135,6 @@ function get_top_movies() {
                         <span class="head_swiper_info_reyting">${String(el.vote_average).slice(0, 3)}</span>
                         <span class="head_swiper_info_data">${el.release_date}</span>
 					</div>`
-                // http://image.tmdb.org/t/p/w500/
-                console.log(window.innerWidth < 700);
                 swiper_wrapper.appendChild(div)
             })
             headSwiper()
@@ -421,12 +419,28 @@ function get_move_andPlay() {
         })
     })
 }
+// scroll efect
+window.addEventListener('scroll', () => {
+    if (scrollY > 500) {
+        document.getElementById('arrow_to_top').style.cssText = 'right:20px'
+    } else {
+        document.getElementById('arrow_to_top').style.cssText = 'right:-60px'
+    }
+})
+
+document.getElementById('arrow_to_top').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+})
 
 // loader off
 setTimeout(() => {
     document.querySelector('.loader').style.opacity = '0'
-}, 2000)
+    window.scrollTo(0, 0)
+}, 1500)
 
 setTimeout(() => {
     document.querySelector('.loader').style.display = 'none'
-}, 2500)
+}, 1500)

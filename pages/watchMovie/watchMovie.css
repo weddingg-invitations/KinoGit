@@ -565,6 +565,48 @@ header::before {
   color: #b7b7b7;
 }
 
+.arrow-to-top {
+  cursor: pointer;
+  position: fixed;
+  right: -60px;
+  bottom: 20px;
+  width: 30px;
+  height: 25px;
+  transition: 200ms;
+  opacity: 0.5;
+  z-index: 1000;
+}
+.arrow-to-top:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.arrow-to-top > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  -webkit-clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0% 100%, 70% 50%, 0% 0%);
+          clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0% 100%, 70% 50%, 0% 0%);
+  transform: rotate(-90deg);
+}
+.arrow-to-top > div > div {
+  width: 70%;
+  height: 70%;
+  background-color: #ffb700;
+  -webkit-clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0% 100%, 70% 50%, 0% 0%);
+          clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0% 100%, 70% 50%, 0% 0%);
+  transition: 200ms;
+}
+.arrow-to-top:active {
+  bottom: 22px;
+}
+.arrow-to-top:hover > div > div {
+  width: 100%;
+  height: 100%;
+}
+
 .about_film {
   position: relative;
   display: flex;
@@ -938,10 +980,8 @@ header::before {
   }
   .search {
     position: relative;
-    top: -5px !important;
     background-color: #0C0C0C;
     max-width: 200px !important;
-    margin-bottom: 15px;
   }
   .head-top-nav-items {
     margin-bottom: 10px;
