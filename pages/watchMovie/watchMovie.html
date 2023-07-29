@@ -147,14 +147,14 @@
                             // -------- if buttones activete run this || autoplay--------
                             slideChange: function () {
                                 move_info_cont_data_change()
-                                enrer_Out()
+                                mouseEnter_out()
                             }
                         }
                     })
 
                     move_info_cont_data_change()
 
-                    function enrer_Out() {
+                    function mouseEnter_out() {
                         const move_info_cont = document.querySelector('.move_info_cont')
                         move_info_cont.addEventListener('mouseenter', () => { swiper.autoplay.stop() })
                         move_info_cont.addEventListener('mouseleave', () => { swiper.autoplay.start() })

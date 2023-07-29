@@ -85,8 +85,7 @@ header {
         height: 100%;
         top: 0;
         right: 0;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 0.30024509803921573) 45%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(90deg, #000000 0%, #000000 33%, #0000004d 45%, #ffffff00 100%);
     }
 }
 
@@ -107,7 +106,6 @@ header {
 }
 
 .logo {
-    font-size: 30px;
     padding: 5px;
     overflow: hidden;
     cursor: pointer;
@@ -135,6 +133,7 @@ header {
     height: fit-content;
     text-transform: capitalize;
     padding-right: 25px;
+    border-radius: 0 0 0 25px;
 }
 
 .head-top-nav-items {
@@ -927,7 +926,7 @@ header {
 }
 
 .mob_open_close {
-    width: 40px;
+    width: 35px;
     display: none;
     transition: 250ms;
     cursor: pointer;
@@ -978,35 +977,40 @@ header {
         }
     }
 
-    footer .pages {
-        margin: 0 2px;
-
-        &:nth-child(1) {
-            display: none;
-        }
-
-        &:nth-child(2) {
-            display: none;
-        }
-
-        &:nth-child(8) {
-            display: none;
-        }
-
-        &:nth-child(9) {
-            display: none;
-        }
-    }
-
     header {
         background-size: contain;
         height: 65vh;
         margin-bottom: 140px;
+        background-position: 0 200px;
+
+        &::before {
+            background: linear-gradient(90deg, #000000c9 0%, #000000a1 33%, rgb(0 0 0 / 24%) 45%, rgba(255, 255, 255, 0) 100%);
+        }
     }
 
-    .move_info_cont,
-    header::before {
-        display: none;
+    .move_info_cont {
+        margin-top: 90px;
+
+        .move_info_cont_title {
+            font-size: 16px;
+        }
+
+        .move_info_cont_date {
+            font-size: 13px;
+        }
+
+        .move_info_cont_reyting {
+            font-size: 13px;
+        }
+
+        .move_info_cont_play {
+            font-size: 13px;
+            padding: 5px 10px;
+
+            img {
+                width: 18px;
+            }
+        }
     }
 
     .head-top-nav-items {
@@ -1070,9 +1074,9 @@ header {
         position: absolute;
         flex-direction: column-reverse;
         align-items: flex-end;
-        top: 73px;
+        top: 50px;
         right: -400px;
-        background-color: #0C0C0C;
+        background-color: #0c0c0cf0;
         width: 50%;
         min-width: 250px;
         padding-top: 20px;
@@ -1166,11 +1170,37 @@ header {
     .players-cont {
         width: 95%;
     }
+
+    footer .pages {
+        margin: 0 2px;
+
+        &:nth-child(1) {
+            display: none;
+        }
+
+        &:nth-child(2) {
+            display: none;
+        }
+
+        &:nth-child(8) {
+            display: none;
+        }
+
+        &:nth-child(9) {
+            display: none;
+        }
+    }
 }
 
 @media screen and (max-width: 500px) {
     header {
         margin-bottom: 85px;
+    }
+
+    .logo {
+        h1 {
+            font-size: 22px;
+        }
     }
 
     .recomendet-films-items {
@@ -1199,6 +1229,12 @@ header {
 
     .recomendet-films-cont {
         margin: 0 auto;
+    }
+
+    .logo {
+        h1 {
+            font-size: 22px;
+        }
     }
 }
 

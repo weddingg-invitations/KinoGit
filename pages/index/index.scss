@@ -61,8 +61,7 @@ header {
         height: 100%;
         top: 0;
         right: 0;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 0.30024509803921573) 45%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(90deg, #000000 0%, #000000 33%, #0000004d 45%, #ffffff00 100%);
     }
 }
 
@@ -83,7 +82,6 @@ header {
 }
 
 .logo {
-    font-size: 30px;
     padding: 5px;
     overflow: hidden;
     cursor: pointer;
@@ -111,6 +109,7 @@ header {
     height: fit-content;
     text-transform: capitalize;
     padding-right: 25px;
+    border-radius: 0 0 0 25px;
 }
 
 .head-top-nav-items {
@@ -860,7 +859,7 @@ footer {
 }
 
 .mob_open_close {
-    width: 40px;
+    width: 35px;
     display: none;
     transition: 250ms;
     cursor: pointer;
@@ -888,33 +887,20 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
-    footer .pages {
-        margin: 0 2px;
+    header {
+        background-size: contain;
+        background-position: 0 200px;
+        height: 65vh;
+        margin-bottom: 140px;
 
-        &:nth-child(1) {
-            display: none;
-        }
-
-        &:nth-child(2) {
-            display: none;
-        }
-
-        &:nth-child(8) {
-            display: none;
-        }
-
-        &:nth-child(9) {
-            display: none;
+        &::before {
+            background: linear-gradient(90deg, #000000c9 0%, #000000a1 33%, rgb(0 0 0 / 24%) 45%, rgba(255, 255, 255, 0) 100%);
         }
     }
 
     .head-swiper-wrapper {
         margin-bottom: 40px;
-    }
-
-    header {
-        margin-bottom: 140px;
-        background-position: 0 195px;
+        bottom: 10px
     }
 
     .move_info_cont {
@@ -943,11 +929,18 @@ footer {
     }
 
     .head-top-nav-items {
-        font-size: 13px;
+        margin-bottom: 10px;
+        font-size: 17px;
     }
 
     .head-swiper-container {
         height: 122%;
+    }
+
+    .logo {
+        h1 {
+            font-size: 22px;
+        }
     }
 
     .swiper-pagination {
@@ -960,9 +953,6 @@ footer {
 
     .main_films_categories_cont {
         padding-top: 0;
-    }
-
-    .main_films_categories_cont {
         flex-direction: column-reverse;
     }
 
@@ -998,14 +988,6 @@ footer {
             font-size: 13px;
         }
     }
-}
-
-// _______---------------------------------------------------------------------
-@media screen and (max-width: 700px) {
-    header {
-        background-size: contain;
-        height: 65vh;
-    }
 
     .mob_open_close {
         display: inline-block;
@@ -1020,9 +1002,9 @@ footer {
         position: absolute;
         flex-direction: column-reverse;
         align-items: flex-end;
-        top: 73px;
+        top: 50px;
         right: -400px;
-        background-color: #0C0C0C;
+        background-color: #0c0c0cf0;
         width: 50%;
         min-width: 250px;
         padding-top: 20px;
@@ -1050,15 +1032,6 @@ footer {
         max-width: 200px !important;
     }
 
-    .head-top-nav-items {
-        margin-bottom: 10px;
-        font-size: 17px;
-    }
-
-    .head-swiper-wrapper {
-        bottom: 10px
-    }
-
     .head-swiper-slide {
         width: 80px;
         height: 125px;
@@ -1068,6 +1041,26 @@ footer {
         .categories__tag {
             font-size: 12px;
             box-shadow: -10px 0 15px $colorBlack;
+        }
+    }
+
+    footer .pages {
+        margin: 0 2px;
+
+        &:nth-child(1) {
+            display: none;
+        }
+
+        &:nth-child(2) {
+            display: none;
+        }
+
+        &:nth-child(8) {
+            display: none;
+        }
+
+        &:nth-child(9) {
+            display: none;
         }
     }
 }
