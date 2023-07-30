@@ -802,11 +802,11 @@ footer .pages-active {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.7882352941) 0%, rgba(0, 0, 0, 0.631372549) 33%, rgba(0, 0, 0, 0.24) 45%, rgba(255, 255, 255, 0) 100%);
   }
   .head-swiper-wrapper {
-    margin-bottom: 40px;
-    bottom: 10px;
+    bottom: -20px;
   }
   .move_info_cont {
     margin-top: 90px;
+    margin-left: 30px;
   }
   .move_info_cont .move_info_cont_title {
     font-size: 16px;
@@ -830,6 +830,7 @@ footer .pages-active {
   }
   .head-swiper-container {
     height: 122%;
+    bottom: -25px;
   }
   .logo h1 {
     font-size: 22px;

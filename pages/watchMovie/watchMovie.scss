@@ -983,7 +983,7 @@ header {
     header {
         background-size: contain;
         height: 65vh;
-        margin-bottom: 140px;
+        margin-bottom: 130px;
         background-position: 0 200px;
 
         &::before {
@@ -993,6 +993,7 @@ header {
 
     .move_info_cont {
         margin-top: 90px;
+        margin-left: 30px;
 
         .move_info_cont_title {
             font-size: 16px;
@@ -1022,6 +1023,7 @@ header {
 
     .head-swiper-container {
         height: 122%;
+        bottom: -25px;
     }
 
     .swiper-pagination {
@@ -1158,7 +1160,7 @@ header {
     }
 
     .head-swiper-wrapper {
-        bottom: 10px
+        bottom: -20px
     }
 
     .menu-btn {
@@ -1196,10 +1198,6 @@ header {
 }
 
 @media screen and (max-width: 500px) {
-    header {
-        margin-bottom: 85px;
-    }
-
     .logo {
         h1 {
             font-size: 22px;

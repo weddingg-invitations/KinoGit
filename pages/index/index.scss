@@ -902,12 +902,12 @@ footer {
     }
 
     .head-swiper-wrapper {
-        margin-bottom: 40px;
-        bottom: 10px
+        bottom: -20px
     }
 
     .move_info_cont {
         margin-top: 90px;
+        margin-left: 30px;
 
         .move_info_cont_title {
             font-size: 16px;
@@ -938,6 +938,7 @@ footer {
 
     .head-swiper-container {
         height: 122%;
+        bottom: -25px;
     }
 
     .logo {

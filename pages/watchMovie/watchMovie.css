@@ -888,7 +888,7 @@ header::before {
   header {
     background-size: contain;
     height: 65vh;
-    margin-bottom: 140px;
+    margin-bottom: 130px;
     background-position: 0 200px;
   }
   header::before {
@@ -896,6 +896,7 @@ header::before {
   }
   .move_info_cont {
     margin-top: 90px;
+    margin-left: 30px;
   }
   .move_info_cont .move_info_cont_title {
     font-size: 16px;
@@ -918,6 +919,7 @@ header::before {
   }
   .head-swiper-container {
     height: 122%;
+    bottom: -25px;
   }
   .swiper-pagination {
     display: none;
@@ -1026,7 +1028,7 @@ header::before {
     height: 100% !important;
   }
   .head-swiper-wrapper {
-    bottom: 10px;
+    bottom: -20px;
   }
   .menu-btn {
     width: 12px !important;
@@ -1055,9 +1057,6 @@ header::before {
   }
 }
 @media screen and (max-width: 500px) {
-  header {
-    margin-bottom: 85px;
-  }
   .logo h1 {
     font-size: 22px;
   }

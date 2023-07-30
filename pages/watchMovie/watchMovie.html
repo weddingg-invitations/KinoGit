@@ -115,7 +115,7 @@
 
                     let swiper = new Swiper('.head-swiper-container', {
                         effect: 'coverflow',
-                        speed: 350,
+                        speed: 200,
                         centeredSlides: true,
                         slidesPerView: 'auto',
                         loop: true,
@@ -136,7 +136,7 @@
                             clickable: true,
                         },
                         autoplay: {
-                            delay: 4000,
+                            delay: 6000,
                         },
                         on: {
                             // -------- touch & move--------
@@ -147,7 +147,7 @@
                             // -------- if buttones activete run this || autoplay--------
                             slideChange: function () {
                                 move_info_cont_data_change()
-                                // mouseEnter_out()
+                                mouseEnter_out()
                             }
                         }
                     })
