@@ -78,7 +78,7 @@
 
                             document.querySelector('.move_info_cont').innerHTML = `<h2 class="move_info_cont_title">${move_info_cont_title}</h2>
                                 <p class="move_info_cont_date">дата выхода - ${head_swiper_info_data.replace(/-/g, " / ")}</p>
-                                <span class="move_info_cont_reyting">рейтинг 
+                                <p class="move_info_cont_reyting">рейтинг 
                                     <img src="./assets/svg/TMDB-icon.svg" alt="TMDB-icon">
                                     <span class='reyting_stars_cont' id='reyting_stars_cont'>
                                         <span class='reyting_stars_bg_width' id='reyting_stars_bg_width'></span>
@@ -88,7 +88,7 @@
                                         <img src='./assets/svg/yellowStar.png'>
                                         <img src='./assets/svg/yellowStar.png'>
                                     </span>
-                                </span>
+                                </p>
 
                                 <div class="move_info_cont_row">
                                     <div class="move_info_cont_play movie" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
@@ -146,7 +146,7 @@
                             // -------- if buttones activete run this || autoplay--------
                             slideChange: function () {
                                 move_info_cont_data_change()
-                                mouseEnter_out()
+                                // mouseEnter_out()
                             },
                         }
                     })
