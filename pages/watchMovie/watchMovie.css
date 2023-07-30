@@ -318,8 +318,7 @@ header::before {
   height: 14px;
 }
 .move_info_cont .reyting_stars_cont img {
-  width: -moz-fit-content;
-  width: fit-content;
+  height: 100%;
 }
 .move_info_cont .reyting_stars_cont .reyting_stars_bg_width {
   position: absolute;
