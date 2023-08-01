@@ -1,5 +1,6 @@
 {
     "liveServer.settings.port": 5501,
     "liveSassCompile.settings.rootIsWorkspace": true,
-    "liveSassCompile.settings.compileOnWatch": true
+    "liveSassCompile.settings.compileOnWatch": true,
+    "liveServer.settings.useLocalIp": true
 }
