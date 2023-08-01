@@ -110,7 +110,7 @@
                                 document.querySelector('.move_info_cont_reyting').classList.add('move_info_cont_date_anim')
                                 document.querySelector('.move_info_cont_row').classList.add('move_info_cont_date_anim')
                             }, 500);
-                            
+
                             let reytingStars = () => {
                                 document.getElementById('reyting_stars_bg_width').style.width = `${reyting.replace('.', '0.')}%`
                             }
@@ -119,9 +119,13 @@
                             setTimeout(() => {
                                 document.getElementById('triller_video').innerHTML = ''
                             }, 0);
-                            setTimeout(() => {
-                                watch_thrillerr(head_swiper_info_id)
-                            }, 2000);
+
+                            if (window.innerWidth > 700) {
+                                setTimeout(() => {
+                                    watch_thrillerr(head_swiper_info_id)
+                                }, 2000);
+                            }
+
 
                             reytingStars()
                             move_info_cont_play()
@@ -188,10 +192,7 @@
                                     if (el.name) {
                                         if ((String(el.name).toLocaleLowerCase()).match('trailer')) {
                                             arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=0&autoplay=1&loop=1&playlist=${el.key}&showinfo=0&mute=1" title="${el.name}"></iframe>`)
-                                            if (true) {
-                                                document.getElementById('triller_video').innerHTML = arr[0]
-                                                // console.log(document.querySelector('#triller_video>iframe'));
-                                            }
+                                            document.getElementById('triller_video').innerHTML = arr[0]
                                         }
                                     }
                                 })
@@ -202,7 +203,7 @@
             </script>
         </div>
     </header>
-    
+
     <main id="main">
         <div class="main_films_categories_cont">
             <section class="main__section" id="main__section">

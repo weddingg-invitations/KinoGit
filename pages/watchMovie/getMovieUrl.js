@@ -28,15 +28,12 @@ slect_player_btn.forEach((el, i) => {
     });
 });
 
-const styles = document.getElementById('kinoplayertop')
-
 setTimeout(() => {
+    let styles = document.getElementById('kinoplayertop')
     let get_width = parseInt(getComputedStyle(styles).getPropertyValue('width'))
     let get_height = parseInt(getComputedStyle(styles).getPropertyValue('height'))
-    // console.log(get_width, get_height)
 
     document.querySelectorAll('.video-players').forEach(el => {
         el.style.cssText = `width:${get_width}px; height:${get_height}px`
-    });
-
+    })
 }, 1000);
