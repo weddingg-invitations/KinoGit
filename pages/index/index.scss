@@ -276,13 +276,14 @@ header {
 
     .reyting_stars_cont {
         position: relative;
-        display: flex;
+        display: inherit;
         width: 74px;
         margin-left: 8px;
         height: 14px;
 
         img {
-            height: 100%;
+            width: 14px;
+            height: 14px;
         }
 
         .reyting_stars_bg_width {

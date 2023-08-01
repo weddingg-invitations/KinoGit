@@ -253,13 +253,14 @@ header::before {
 }
 .move_info_cont .reyting_stars_cont {
   position: relative;
-  display: flex;
+  display: inherit;
   width: 74px;
   margin-left: 8px;
   height: 14px;
 }
 .move_info_cont .reyting_stars_cont img {
-  height: 100%;
+  width: 14px;
+  height: 14px;
 }
 .move_info_cont .reyting_stars_cont .reyting_stars_bg_width {
   position: absolute;
