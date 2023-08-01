@@ -256,11 +256,11 @@ header::before {
   display: inherit;
   width: 74px;
   margin-left: 8px;
-  height: 14px;
+  height: 13px;
 }
 .move_info_cont .reyting_stars_cont img {
   width: 14px;
-  height: 14px;
+  height: 13px;
 }
 .move_info_cont .reyting_stars_cont .reyting_stars_bg_width {
   position: absolute;

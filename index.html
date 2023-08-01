@@ -120,12 +120,9 @@
                                 document.getElementById('triller_video').innerHTML = ''
                             }, 0);
 
-                            if (window.innerWidth > 700) {
-                                setTimeout(() => {
-                                    watch_thrillerr(head_swiper_info_id)
-                                }, 2000);
-                            }
-
+                            setTimeout(() => {
+                                watch_thrillerr(head_swiper_info_id)
+                            }, 2000);
 
                             reytingStars()
                             move_info_cont_play()
@@ -183,20 +180,22 @@
                     }
                     // triller
                     function watch_thrillerr(id) {
-                        let arr = ['no resalt']
+                        if (window.innerWidth > 700) {
+                            let arr = ['no resalt']
 
-                        fetch(`${BASE_URL}/movie/${id}/videos?${API_KEY}`).then(res => res.json())
-                            .then(videoData => {
-                                videoData.results.forEach(el => {
-                                    let res = ''
-                                    if (el.name) {
-                                        if ((String(el.name).toLocaleLowerCase()).match('trailer')) {
-                                            arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=0&autoplay=1&loop=1&playlist=${el.key}&showinfo=0&mute=1" title="${el.name}"></iframe>`)
-                                            document.getElementById('triller_video').innerHTML = arr[0]
+                            fetch(`${BASE_URL}/movie/${id}/videos?${API_KEY}`).then(res => res.json())
+                                .then(videoData => {
+                                    videoData.results.forEach(el => {
+                                        let res = ''
+                                        if (el.name) {
+                                            if ((String(el.name).toLocaleLowerCase()).match('trailer')) {
+                                                arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=0&autoplay=1&loop=1&playlist=${el.key}&showinfo=0&mute=1" title="${el.name}"></iframe>`)
+                                                document.getElementById('triller_video').innerHTML = arr[0]
+                                            }
                                         }
-                                    }
+                                    })
                                 })
-                            })
+                        }
                     }
                 }
 
