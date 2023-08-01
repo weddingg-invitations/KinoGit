@@ -271,7 +271,7 @@ function watch_thriller(id) {
                 let res = ''
                 if (el.name) {
                     if ((String(el.name).toLocaleLowerCase()).match('trailer')) {
-                        arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=1&playlist=${el.key}&showinfo=0" title="${el.name}"></iframe>`)
+                        arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=1&playlist=${el.key}&showinfo=0&Access-Control-Allow-Origin" title="${el.name}"></iframe>`)
                         if (true) {
                             document.getElementById('triller').innerHTML = arr[0]
                             // console.log(document.querySelector('#triller_video>iframe'));
