@@ -97,8 +97,8 @@
 
                                 <div class="move_info_cont_row">
                                     <div class="move_info_cont_play movie" move_data="${move_info_cont_title} ,${move_info_cont_original_title}, ${head_swiper_info_data.slice(0, 4)}">
-                                        <img src="./../../assets/svg/icons-play.png" alt="play">
-                                        смотреть</div>
+                                        <img src="./../../assets/svg/icons-play.png" alt="play">смотреть
+                                    </div>
                                 </div>`
 
                             setTimeout(() => {
@@ -115,10 +115,10 @@
 
                     let swiper = new Swiper('.head-swiper-container', {
                         effect: 'coverflow',
-                        speed: 200,
+                        speed: 400,
                         centeredSlides: true,
                         slidesPerView: 'auto',
-                        loop: true,
+                        // loop: true,
                         coverflowEffect: {
                             depth: 40,
                             modifier: 5,
@@ -178,23 +178,28 @@
             </div>
         </div>
 
-        <!-- players -->
+        <!-- player -->
         <div class="players-cont">
             <div class="slect-player">
                 <p class="slect-player-btn slect-player-btn-active">плеер 1</p>
                 <p class="slect-player-btn">плеер 2</p>
+                <p class="slect-player-btn">триллер</p>
             </div>
 
+            <!-- players -->
             <div class="video-players video-player-active">
+                <div id="yohoho" data-title=""></div>
+            </div>
+
+            <div class="video-players">
                 <div id="kinoplayertop" data-player-active="tabus" data-title="" data-shearch="false" data-bg="#131313"
                     data-ratio="1by1 ">
                 </div>
             </div>
 
             <div class="video-players">
-                <div id="yohoho" data-title="Тайна Коко"></div>
+                <div class="triller-video" id="triller"></div>
             </div>
-
         </div>
 
         <div class="recomendet-films-cont">

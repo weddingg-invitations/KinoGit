@@ -26,9 +26,9 @@ let language = 'ru-RU'
 
 const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8';
 const BASE_URL = 'https://api.themoviedb.org/3';
-const API_URL = BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY;
+const API_URL = `${BASE_URL}/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}`;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-const searchURL = BASE_URL + `/search/movie?` + API_KEY;
+const searchURL = `${BASE_URL}/search/movie?${API_KEY}`;
 const genres = [
     {
         "id": 12,
@@ -110,7 +110,7 @@ const genres = [
 // top slider movies
 get_top_movies()
 function get_top_movies() {
-    fetch(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY)
+    fetch(`${BASE_URL}/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}`)
         // slider top 20
         .then(r => r.json())
         .then(r => {
@@ -134,6 +134,7 @@ function get_top_movies() {
 						<h2 class="head_swiper_info_title">${el.title}</h2>
                         <span class="head_swiper_info_reyting">${String(el.vote_average).slice(0, 3)}</span>
                         <span class="head_swiper_info_data">${el.release_date}</span>
+                        <span class="head_swiper_info_id">${el.id}</span>
 					</div>`
                 swiper_wrapper.appendChild(div)
             })

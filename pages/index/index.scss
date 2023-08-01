@@ -57,11 +57,12 @@ header {
     &::before {
         content: '';
         position: absolute;
-        width: 100%;
+        width: 40%;
         height: 100%;
         top: 0;
-        right: 0;
-        background: linear-gradient(90deg, #000000 0%, #000000 33%, #0000004d 45%, #ffffff00 100%);
+        left: 0;
+        background: linear-gradient(90deg, #000000 0%, #000000 80%, #ffffff00 100%);
+        z-index: 1;
     }
 }
 
@@ -223,6 +224,11 @@ header {
 }
 
 // -------------------------
+.head-info-And-triller-cont {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
 .move_info_cont {
     position: absolute;
@@ -303,15 +309,20 @@ header {
     .move_info_cont_play {
         display: flex;
         align-items: center;
-        background-color: $colororange;
         width: fit-content;
         padding: 8px 16px;
         margin-right: 16px;
         transition: 600ms ease-out;
         cursor: pointer;
+        background: $colororange;
+        background: -moz-linear-gradient(180deg, rgba(255, 183, 0, 1) 0%, rgba(255, 183, 0, 1) 45%, rgba(175, 132, 32, 1) 100%);
+        background: -webkit-linear-gradient(180deg, rgba(255, 183, 0, 1) 0%, rgba(255, 183, 0, 1) 45%, rgba(175, 132, 32, 1) 100%);
+        background: linear-gradient(180deg, rgba(255, 183, 0, 1) 0%, rgba(255, 183, 0, 1) 45%, rgba(175, 132, 32, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffb700", endColorstr="#af8420", GradientType=1);
 
         &:hover {
-            background-color: #ff8300;
+            transform: translate(2px, 2px);
+            transition: 300ms;
         }
 
         img {
@@ -323,6 +334,22 @@ header {
     .move_info_cont_date_anim {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+.triller-video {
+    position: absolute;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    z-index: 0;
+
+    iframe {
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -897,8 +924,12 @@ footer {
         margin-bottom: 140px;
 
         &::before {
-            background: linear-gradient(90deg, #000000c9 0%, #000000a1 33%, rgb(0 0 0 / 24%) 45%, rgba(255, 255, 255, 0) 100%);
+            display: none;
         }
+    }
+
+    .triller-video {
+        display: none;
     }
 
     .head-swiper-wrapper {

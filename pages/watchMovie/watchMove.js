@@ -255,8 +255,31 @@ function showPoster_andData() {
             </div>`
             reytingStars()
             show_recomendet_films(R)
+            watch_thriller(get_id)
         })
         .catch(err => console.error(err));
+}
+
+// triller
+function watch_thriller(id) {
+    let arr = ['no resalt']
+
+    fetch(`${BASE_URL}/movie/${id}/videos?${API_KEY}`).then(res => res.json())
+        .then(videoData => {
+            videoData.results.forEach(el => {
+                document.getElementById('triller').innerHTML = ''
+                let res = ''
+                if (el.name) {
+                    if ((String(el.name).toLocaleLowerCase()).match('trailer')) {
+                        arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=1&playlist=${el.key}&showinfo=0" title="${el.name}"></iframe>`)
+                        if (true) {
+                            document.getElementById('triller').innerHTML = arr[0]
+                            // console.log(document.querySelector('#triller_video>iframe'));
+                        }
+                    }
+                }
+            })
+        })
 }
 
 document.getElementById('top_movies').addEventListener('click', (e) => {
@@ -346,6 +369,7 @@ function get_Watch_Move_andPlay() {
     })
 }
 
+
 function recomendet_movies(url) {
     fetch(url).then(res => res.json()).then(data => {
 
@@ -370,9 +394,6 @@ function recomendet_movies(url) {
                 }
             })
         }
-        // else {
-        //     search__films__cont.innerHTML = `<h3 class="no-results">No Results Found</h3>`
-        // }
         recomendet_films_Swiper()
         get_Watch_Move_andPlay()
     })
@@ -381,7 +402,7 @@ function recomendet_movies(url) {
 window.addEventListener('scroll', () => {
     if (scrollY > 500) {
         document.getElementById('arrow_to_top').style.cssText = 'right:20px'
-    }else{
+    } else {
         document.getElementById('arrow_to_top').style.cssText = 'right:-60px'
     }
 })
