@@ -38,14 +38,12 @@ setTimeout(() => {
     })
 }, 1000);
 
-window.addEventListener('hashchange', () => {
-    
-    if (window.innerDocClick) {
-        console.log(1);
-        //         //Your own in-page mechanism triggered the hash change
-        //         console.log('go');
-    }// else {
-    //         //Browser back button was clicked
-    //         console.log('back');
-    //     }
-})
+// window.onhashchange = () => {
+//     if (window.innerDocClick) {
+//         //Your own in-page mechanism triggered the hash change
+//         console.log('go');
+//     } else {
+//         //Browser back button was clicked
+//         console.log('back');
+//     }
+// }

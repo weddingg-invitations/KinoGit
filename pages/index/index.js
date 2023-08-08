@@ -318,7 +318,7 @@ search_inp.addEventListener('keyup', (e) => {
 
 // serch click logic
 function serchLogic(e) {
-    if (e.code == 'Enter' || e.code == 'NumpadEnter' || e.target.id == "search_btn") {
+    if (e.code == 'Enter' || e.code == 'NumpadEnter') {
         const searchTerm = search_inp.value;
         selectedGenre = [];
         setGenre();
@@ -329,7 +329,7 @@ function serchLogic(e) {
         }
         setTimeout(() => {
             document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
-        }, 150);
+        }, 1500);
     }
 }
 // нумерация страниц назад 
