@@ -421,4 +421,6 @@ setTimeout(() => {
 
 setTimeout(() => {
     document.querySelector('.loader').style.display = 'none'
+
+    document.getElementById('main').scrollIntoView({ behavior: 'smooth' })
 }, 2500)

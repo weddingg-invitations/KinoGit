@@ -107,6 +107,7 @@ const genres = [
         "name": "Телефильм"
     },
 ]
+
 // top slider movies
 get_top_movies()
 function get_top_movies() {
@@ -142,6 +143,7 @@ function get_top_movies() {
             get_move_andPlay()
         })
 }
+
 // установить Жанр
 setGenre();
 function setGenre() {
@@ -171,6 +173,7 @@ function setGenre() {
         categories_cont.append(t);
     })
 }
+
 // множественный выбор жанор 
 function highlightSelection() {
     const tags = document.querySelectorAll('.categories__tag');
@@ -202,6 +205,7 @@ function highlightSelection() {
         })
     }
 }
+
 // получить фильмы
 getMovies(API_URL)
 function getMovies(url) {
@@ -238,6 +242,7 @@ function getMovies(url) {
         }
     })
 }
+
 // нумерация страниц
 function pagination(currentPage, totalPages) {
     current.innerHTML = `
@@ -262,6 +267,7 @@ function pagination(currentPage, totalPages) {
 
     pagination_click()
 }
+
 // показать фильмы
 function showMovies(data) {
     main__section__films.innerHTML = '';
@@ -288,6 +294,7 @@ function showMovies(data) {
         }
     })
 }
+
 // получить цвет
 function getColor(vote) {
     if (vote >= 8) {
@@ -298,14 +305,17 @@ function getColor(vote) {
         return 'red'
     }
 }
+
 // search_btn
 search_btn.addEventListener('click', (e) => {
     serchLogic(e)
 })
+
 // search_inp
 search_inp.addEventListener('keyup', (e) => {
     serchLogic(e)
 })
+
 // serch click logic
 function serchLogic(e) {
     if (e.code == 'Enter' || e.code == 'NumpadEnter' || e.target.id == "search_btn") {
@@ -368,6 +378,7 @@ function pagination_click() {
         })
     })
 }
+
 // страница созвать
 function pageCall(page) {
     let urlSplit = lastUrl.split('?');
@@ -420,6 +431,7 @@ function get_move_andPlay() {
         })
     })
 }
+
 // scroll efect
 window.addEventListener('scroll', () => {
     if (scrollY > 500) {
