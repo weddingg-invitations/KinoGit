@@ -4,32 +4,31 @@ const thisYear = D.getFullYear() // 2023
 
 document.getElementById('FullYear').innerText = thisYear
 
-const main__section__films = document.getElementById('main__section__films');
-const search_inp = document.getElementById('search_inp');
-const search_btn = document.getElementById('search_btn');
-const categories_cont = document.getElementById('categories');
+const main__section__films = document.getElementById('main__section__films'),
+    search_inp = document.getElementById('search_inp'),
+    search_btn = document.getElementById('search_btn'),
+    categories_cont = document.getElementById('categories'),
+    prev = document.getElementById('prev'),
+    next = document.getElementById('next'),
+    current = document.getElementById('current');
 
-const prev = document.getElementById('prev')
-const next = document.getElementById('next')
-const current = document.getElementById('current')
-
-let currentPage = 1;
-let nextPage = 2;
-let prevPage = 3;
-let lastUrl = '';
-let totalPages = 100;
-let selectedGenre = []
+let currentPage = 1,
+    nextPage = 2,
+    prevPage = 3,
+    lastUrl = '',
+    totalPages = 100,
+    selectedGenre = [];
 
 //TMDB themoviedb
 
 let language = 'ru-RU'
 
-const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8';
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_URL = `${BASE_URL}/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}`;
-const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-const searchURL = `${BASE_URL}/search/movie?${API_KEY}`;
-const genres = [
+const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8',
+BASE_URL = 'https://api.themoviedb.org/3',
+API_URL = `${BASE_URL}/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}`,
+IMG_URL = 'https://image.tmdb.org/t/p/w500',
+searchURL = `${BASE_URL}/search/movie?${API_KEY}`,
+genres = [
     {
         "id": 12,
         "name": "Приключение"
@@ -106,7 +105,7 @@ const genres = [
         "id": 10770,
         "name": "Телефильм"
     },
-]
+];
 
 // top slider movies
 get_top_movies()
