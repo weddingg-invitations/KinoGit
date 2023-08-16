@@ -72,7 +72,6 @@
             <!--swiper configs -->
             <script>
                 function headSwiper() {
-
                     let move_info_cont_data_change = () => {
                         setTimeout(() => {
 
@@ -153,6 +152,10 @@
                         },
                         autoplay: {
                             delay: 90000, //1-min 30-sec
+                        },
+                        keyboard: {
+                            enabled: true,
+                            onlyInViewport: false,
                         },
                         on: {
                             // -------- touch & move--------

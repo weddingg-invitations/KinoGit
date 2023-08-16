@@ -623,7 +623,7 @@ header::before {
 }
 .main__section .main__section__films {
   width: 100%;
-  padding-top: 80px;
+  padding-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
