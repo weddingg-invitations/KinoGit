@@ -602,6 +602,14 @@ header {
     width: 80%;
     min-width: 120px;
     text-transform: capitalize;
+
+}
+
+.categories-title2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .text_2 {
@@ -1011,7 +1019,8 @@ footer {
         display: block;
     }
 
-    .categories {
+    .categories__tag__cont,
+    .categories__tag__year__cont {
         width: 100%;
         display: grid;
         grid-template-columns: auto auto auto;
@@ -1074,6 +1083,8 @@ footer {
     }
 
     .categories {
+        width: 100%;
+
         .categories__tag {
             font-size: 12px;
             box-shadow: -10px 0 15px $colorBlack;
@@ -1102,7 +1113,9 @@ footer {
 }
 
 @media screen and (max-width:500px) {
-    .categories {
+
+    .categories__tag__cont,
+    .categories__tag__year__cont {
         width: 100%;
         display: grid;
         grid-template-columns: auto auto;

@@ -750,12 +750,13 @@ header {
 .reclam_player {
     width: 65%;
     height: 350px;
-    background-color: $colorBlack;
+    background-color: $bgColor;
     margin: 80px auto;
     color: $colorWhite;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 20px 0 $colorBlack;
 
     .reclam_player_baner {
         text-align: center;
@@ -804,6 +805,8 @@ header {
 
 .slect-player {
     display: flex;
+    position: relative;
+    z-index: 1;
 }
 
 .slect-player-btn {
@@ -830,6 +833,16 @@ header {
 
 .video-players {
     display: none;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    box-shadow:0 0 20px 0 $colorBlack;
+
+    >span{
+        position: absolute;
+        color: $colorWhite;
+        z-index: -1;
+    }
 
     >div {
         width: 100% !important;
@@ -843,7 +856,7 @@ header {
 }
 
 .video-player-active {
-    display: block;
+    display: flex;
 }
 
 .top-left_2-xxL {
@@ -1156,7 +1169,7 @@ header {
 
     .reclam_player {
         width: 95%;
-        height: 250px
+        height: 250px;
     }
 
     .video-players {

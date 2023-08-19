@@ -268,14 +268,13 @@ function watch_thriller(id) {
         .then(videoData => {
             videoData.results.forEach(el => {
                 document.getElementById('triller').innerHTML = ''
-                let res = ''
+
                 if (el.name) {
-                    if ((String(el.name).toLocaleLowerCase()).match('trailer')) {
+                    if ((String(el.name).toLocaleLowerCase()).match('trailer') || (String(el.name).toLocaleLowerCase()).match('final trailer') || (String(el.name).toLocaleLowerCase()).match('official trailer')) {
                         arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=1&playlist=${el.key}&showinfo=0&Access-Control-Allow-Origin" title="${el.name}"></iframe>`)
-                        if (true) {
-                            document.getElementById('triller').innerHTML = arr[0]
-                            // console.log(document.querySelector('#triller_video>iframe'));
-                        }
+                        document.getElementById('triller').innerHTML = arr[0]
+                        // console.log(document.querySelector('#triller>iframe').contentDocument);
+                        // console.log(document.querySelector('#triller>iframe').contentDocument.querySelector('html>body>div'));
                     }
                 }
             })

@@ -24,88 +24,88 @@ let currentPage = 1,
 let language = 'ru-RU'
 
 const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8',
-BASE_URL = 'https://api.themoviedb.org/3',
-API_URL = `${BASE_URL}/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}`,
-IMG_URL = 'https://image.tmdb.org/t/p/w500',
-searchURL = `${BASE_URL}/search/movie?${API_KEY}`,
-genres = [
-    {
-        "id": 12,
-        "name": "Приключение"
-    },
-    {
-        "id": 14,
-        "name": "Фантастика"
-    },
-    {
-        "id": 16,
-        "name": "Мультфильмы"
-    },
-    {
-        "id": 18,
-        "name": "Драмы"
-    },
-    {
-        "id": 27,
-        "name": "Ужасы"
-    },
-    {
-        "id": 28,
-        "name": "Популярные боевики"
-    },
-    {
-        "id": 35,
-        "name": "комедии"
-    },
-    {
-        "id": 36,
-        "name": "Исторические"
-    },
-    {
-        "id": 37,
-        "name": "вестерны"
-    },
-    {
-        "id": 53,
-        "name": "Триллеры"
-    },
-    {
-        "id": 80,
-        "name": "Криминал"
-    },
-    {
-        "id": 99,
-        "name": "Документальные"
-    },
-    {
-        "id": 878,
-        "name": "научная фантастика"
-    },
-    {
-        "id": 9648,
-        "name": "детектив"
-    },
-    {
-        "id": 10402,
-        "name": "Музыкальные"
-    },
-    {
-        "id": 10751,
-        "name": "Семейные"
-    },
-    {
-        "id": 10752,
-        "name": "Военные"
-    },
-    {
-        "id": 10749,
-        "name": "романтические"
-    },
-    {
-        "id": 10770,
-        "name": "Телефильм"
-    },
-];
+    BASE_URL = 'https://api.themoviedb.org/3',
+    API_URL = `${BASE_URL}/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&${API_KEY}`,
+    IMG_URL = 'https://image.tmdb.org/t/p/w500',
+    searchURL = `${BASE_URL}/search/movie?${API_KEY}`,
+    genres = [
+        {
+            "id": 12,
+            "name": "Приключение"
+        },
+        {
+            "id": 14,
+            "name": "Фантастика"
+        },
+        {
+            "id": 16,
+            "name": "Мультфильмы"
+        },
+        {
+            "id": 18,
+            "name": "Драмы"
+        },
+        {
+            "id": 27,
+            "name": "Ужасы"
+        },
+        {
+            "id": 28,
+            "name": "Популярные боевики"
+        },
+        {
+            "id": 35,
+            "name": "комедии"
+        },
+        {
+            "id": 36,
+            "name": "Исторические"
+        },
+        {
+            "id": 37,
+            "name": "вестерны"
+        },
+        {
+            "id": 53,
+            "name": "Триллеры"
+        },
+        {
+            "id": 80,
+            "name": "Криминал"
+        },
+        {
+            "id": 99,
+            "name": "Документальные"
+        },
+        {
+            "id": 878,
+            "name": "научная фантастика"
+        },
+        {
+            "id": 9648,
+            "name": "детектив"
+        },
+        {
+            "id": 10402,
+            "name": "Музыкальные"
+        },
+        {
+            "id": 10751,
+            "name": "Семейные"
+        },
+        {
+            "id": 10752,
+            "name": "Военные"
+        },
+        {
+            "id": 10749,
+            "name": "романтические"
+        },
+        {
+            "id": 10770,
+            "name": "Телефильм"
+        },
+    ];
 
 // top slider movies
 get_top_movies()
@@ -145,9 +145,15 @@ function get_top_movies() {
 
 // установить Жанр
 setGenre();
+
 function setGenre() {
+    let year = 0
     categories_cont.innerHTML = '';
+    let div = document.createElement('div')
+    div.className = 'categories__tag__cont'
+
     genres.forEach(genre => {
+
         const t = document.createElement('div');
         t.classList.add('categories__tag');
         t.id = genre.id;
@@ -166,11 +172,51 @@ function setGenre() {
                     selectedGenre.push(genre.id);
                 }
             }
-            getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
+            getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?&primary_release_year=${year ? year : thisYear}&page=1&year=${year ? year : thisYear}&&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
             highlightSelection()
         })
-        categories_cont.append(t);
+        div.append(t);
+        categories_cont.appendChild(div)
     })
+
+    let h3 = document.createElement('h3')
+    h3.textContent = 'выберите год'
+    h3.className = 'categories-title categories-title2'
+    categories_cont.appendChild(h3)
+
+
+    const select_year = () => {
+        let years = [thisYear - 9, thisYear - 8,thisYear - 7, thisYear - 6, thisYear - 5, thisYear - 4, thisYear - 3, thisYear - 2, thisYear - 1, thisYear]
+
+        let div = document.createElement('div')
+        div.className = 'categories__tag__year__cont'
+
+        years.forEach((y, index) => {
+
+            let div2 = document.createElement('div')
+
+            div2.className = 'categories__tag categories__tag__year'
+            div2.id = y
+            div2.textContent = y
+            div.appendChild(div2)
+            categories_cont.appendChild(div)
+
+            let categories__tag__year = document.querySelectorAll('.categories__tag__year')
+            categories__tag__year[index].addEventListener('click', () => {
+                year = 0
+
+                document.querySelectorAll('.categories__tag__year').forEach(el => {
+                    el.classList.remove('categories__tag--active')
+                })
+                categories__tag__year[index].classList.add('categories__tag--active')
+                year = categories__tag__year[index].id
+
+                getMovies(BASE_URL + `/discover/movie?language=${language}?language=en-EN?&primary_release_year=${year ? year : thisYear}&page=1&year=${year ? year : thisYear}&&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre.join(',')))
+                highlightSelection()
+            })
+        })
+    }
+    select_year()
 }
 
 // множественный выбор жанор 

@@ -544,6 +544,13 @@ header::before {
   text-transform: capitalize;
 }
 
+.categories-title2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
 .text_2 {
   display: none;
 }
@@ -890,13 +897,15 @@ footer .pages-active {
   .text_2 {
     display: block;
   }
-  .categories {
+  .categories__tag__cont,
+  .categories__tag__year__cont {
     width: 100%;
     display: grid;
     grid-template-columns: auto auto auto;
     justify-items: start;
   }
-  .categories .categories__tag {
+  .categories__tag__cont .categories__tag,
+  .categories__tag__year__cont .categories__tag {
     text-align: left;
     width: inherit;
     min-width: inherit;
@@ -942,6 +951,9 @@ footer .pages-active {
     width: 80px;
     height: 125px;
   }
+  .categories {
+    width: 100%;
+  }
   .categories .categories__tag {
     font-size: 12px;
     box-shadow: -10px 0 15px #000000;
@@ -963,13 +975,15 @@ footer .pages-active {
   }
 }
 @media screen and (max-width: 500px) {
-  .categories {
+  .categories__tag__cont,
+  .categories__tag__year__cont {
     width: 100%;
     display: grid;
     grid-template-columns: auto auto;
     justify-items: start;
   }
-  .categories .categories__tag {
+  .categories__tag__cont .categories__tag,
+  .categories__tag__year__cont .categories__tag {
     width: inherit;
     min-width: inherit;
     font-size: 12px;

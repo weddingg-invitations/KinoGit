@@ -151,7 +151,8 @@
                             clickable: true,
                         },
                         autoplay: {
-                            delay: 90000, //1-min 30-sec
+                            delay: (window.innerWidth > 600) ? 99000 : 4000,
+                            pauseOnMouseEnter: true,
                         },
                         keyboard: {
                             enabled: true,
@@ -190,9 +191,8 @@
                             fetch(`${BASE_URL}/movie/${id}/videos?${API_KEY}`).then(res => res.json())
                                 .then(videoData => {
                                     videoData.results.forEach(el => {
-                                        let res = ''
                                         if (el.name) {
-                                            if ((String(el.name).toLocaleLowerCase()).match('trailer')) {
+                                            if ((String(el.name).toLocaleLowerCase()).match('trailer') || (String(el.name).toLocaleLowerCase()).match('final trailer') || (String(el.name).toLocaleLowerCase()).match('official trailer')) {
                                                 arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=0&autoplay=1&loop=1&playlist=${el.key}&showinfo=0&mute=1" title="${el.name}"></iframe>`)
                                                 document.getElementById('triller_video').innerHTML = arr[0]
                                             }
