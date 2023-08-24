@@ -39,9 +39,6 @@
 
 * {
   box-sizing: border-box;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   margin: 0;
   padding: 0;
   word-break: break-word;
@@ -55,6 +52,12 @@ body {
   font-family: "Inter";
 }
 
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 header {
   position: relative;
   display: flex;
@@ -65,6 +68,9 @@ header {
   background-position: right top;
   margin-bottom: 250px;
   background-repeat: no-repeat;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 header::before {
   content: "";
@@ -669,6 +675,9 @@ header::before {
   font-size: 30px;
   color: #ffffff;
   text-shadow: 0 0 15px #000000;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+          user-select: auto;
 }
 
 .reclam_player {
