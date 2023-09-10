@@ -20,12 +20,70 @@
     <!-- main -->
     <link rel="stylesheet" href="./pages/index/index.css">
 
-
     <title>KinoGid</title>
 </head>
 
 <body>
     <header>
+        <div class="reg_popup">
+            <div class="reg_popup_wrap">
+                <div class="reg_popup_wrap_menu">
+                    <div class="sign_up_btn" id="sign_up_btn">login</div>
+                    <div class="registration_btn reg_popup_wrap_menu-active" id="registration_btn">registration</div>
+                    <div class="reg_popup_close">X</div>
+                </div>
+
+                <!-- login -->
+                <form action="" method="post" class="login" id="login__">
+                    <div class="clumn_conts">
+                        <label>имя пользователя</label>
+                        <input type="text" name="username" id="loginUsername">
+                    </div>
+
+                    <div class="clumn_conts">
+                        <label>пароль</label>
+                        <input type="text" name="password" id="loginPassword">
+                    </div>
+
+                    <div class="Keep-me clumn_conts">
+                        <label>
+                            <input id="check" type="checkbox" class="checkbox">
+                        </label>
+                        <p>Не выходить из системы</p>
+                    </div>
+
+                    <input class="submit" name="signup" value="войти" type="submit">
+
+                    <p>Забыли пароль?</p>
+                </form>
+
+                <!-- registr -->
+                <form action="" method="post" class="registr active-block" id="registr__">
+                    <div class="clumn_conts">
+                        <label>имя пользователя</label>
+                        <input type="text" id="registrUsername" name="username">
+                    </div>
+                    <div class="clumn_conts">
+                        <label>возраст</label>
+                        <input type="text" id="registrAge" name="age">
+                    </div>
+                    <div class="clumn_conts">
+                        <label>электронная почта</label>
+                        <input type="text" id="registrMail" name="e-mail">
+                    </div>
+                    <div class="clumn_conts">
+                        <label>пароль</label>
+                        <input type="password" id="registrPassword" name="password">
+                    </div>
+                    <div class="clumn_conts">
+                        <label>Подтвердите пароль</label>
+                        <input type="password" id="registrConfirm">
+                    </div>
+
+                    <input class="submit" value="регистрация" type="submit">
+                </form>
+            </div>
+        </div>
         <!-- head swiper container-->
         <div class="head-top-cont">
             <a href="./index.html" class="logo">
@@ -39,12 +97,20 @@
                     <img src="./assets/svg/search-icon.svg" class="search-btn" id="search_btn">
                 </div>
 
-                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ <span
-                        id="FullYear">2010</span></a>
+                <a href="javascript:void(0)" class="head-top-nav-items" id="top_movies">топ
+                    <span id="FullYear">2010</span>
+                </a>
+
                 <a href="javascript:void(0)" class="head-top-nav-items" id="action">Премьеры</a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="animation">мультики</a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="comedy">комедии</a>
                 <a href="javascript:void(0)" class="head-top-nav-items" id="Family">Семейные</a>
+                <a href="javascript:void(0)" class="head-top-nav-items head-top-nav-items-login login__openPopup"
+                    id="login">
+                    <text>Войти</text>
+                    <img src="./assets/svg/login-icon.svg" alt="login-icon">
+                    <div class="user-icon"></div>
+                </a>
             </nav>
 
             <div class="mob_open_close" id="mob_open_close">
@@ -289,6 +355,7 @@
     <script type="text/javascript" src="./js/searchAnim/searchAnim.js"></script>
     <script type="text/javascript" src="./js/mob_open_close/mob_open_close.js"></script>
     <script type="text/javascript" src="./pages/index/index.js"></script>
+    <script type="text/javascript" src="./pages/index/registationForm.js"></script>
 </body>
 
 </html>

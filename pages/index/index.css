@@ -33,6 +33,134 @@ body {
   font-family: "Inter";
 }
 
+.reg_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.742);
+  z-index: 1000;
+}
+
+.reg_popup_wrap {
+  width: 50%;
+  min-height: 100px;
+  background-color: rgba(0, 0, 0, 0.634);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.1411764706);
+  text-transform: capitalize;
+}
+.reg_popup_wrap .reg_popup_wrap_menu {
+  position: relative;
+  display: flex;
+}
+.reg_popup_wrap .reg_popup_wrap_menu .sign_up_btn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1411764706);
+  margin-left: 5px;
+  margin-top: 5px;
+  transition: 350ms;
+  transition: 250ms;
+  font-size: 14px;
+  cursor: pointer;
+}
+.reg_popup_wrap .reg_popup_wrap_menu .sign_up_btn:hover {
+  background-color: #e89700;
+}
+.reg_popup_wrap .reg_popup_wrap_menu .registration_btn {
+  padding: 8px 15px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1411764706);
+  margin-left: 5px;
+  margin-top: 5px;
+  transition: 350ms;
+  transition: 250ms;
+  font-size: 14px;
+  cursor: pointer;
+}
+.reg_popup_wrap .reg_popup_wrap_menu .registration_btn:hover {
+  background-color: #e89700;
+}
+.reg_popup_wrap .reg_popup_wrap_menu .reg_popup_wrap_menu-active {
+  background-color: orange;
+}
+.reg_popup_wrap .reg_popup_wrap_menu .reg_popup_close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 8px 15px;
+  background-color: rgba(255, 255, 255, 0.1411764706);
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 0 2px 0 4px;
+  transition: 250ms;
+  font-size: 14px;
+  cursor: pointer;
+}
+.reg_popup_wrap .reg_popup_wrap_menu .reg_popup_close:hover {
+  background-color: #e89700;
+}
+.reg_popup_wrap .login {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.reg_popup_wrap .login .Keep-me {
+  display: flex;
+}
+.reg_popup_wrap .registr {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.reg_popup_wrap .clumn_conts {
+  display: flex;
+  flex-direction: column;
+  min-height: 62px;
+}
+.reg_popup_wrap .clumn_conts label {
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+.reg_popup_wrap .clumn_conts input {
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1411764706);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+}
+.reg_popup_wrap .submit {
+  border: none;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1411764706);
+  transition: 250ms;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.reg_popup_wrap .submit:hover {
+  background-color: #e89700;
+}
+.reg_popup_wrap .active-block {
+  display: flex;
+}
+
 header {
   position: relative;
   display: flex;
@@ -109,6 +237,54 @@ header::before {
 }
 .head-top-nav-items:hover {
   color: #ffb700;
+}
+
+.head-top-nav-items-login {
+  position: relative;
+}
+.head-top-nav-items-login:hover {
+  transform: scale(0.9);
+}
+.head-top-nav-items-login text {
+  box-sizing: content-box;
+  padding-left: 30px;
+}
+.head-top-nav-items-login img {
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+}
+.head-top-nav-items-login .user-icon {
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ffb700;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.head-top-nav-items-login .user-icon::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 6px;
+  top: 2px;
+  border: 1px solid #ffb700;
+  border-radius: 100%;
+}
+.head-top-nav-items-login .user-icon::before {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 13px;
+  left: 2px;
+  top: 12px;
+  border: 1px solid #ffb700;
+  border-radius: 100%;
 }
 
 .search {
