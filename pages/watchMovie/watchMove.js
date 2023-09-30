@@ -255,30 +255,27 @@ function showPoster_andData() {
             </div>`
             reytingStars()
             show_recomendet_films(R)
-            watch_thriller(get_id)
+            watch_thriller(get_id, R)
         })
         .catch(err => console.error(err));
 }
 
 // triller
-function watch_thriller(id) {
+function watch_thriller(id, R) {
     let arr = ['no resalt']
 
     fetch(`${BASE_URL}/movie/${id}/videos?${API_KEY}`).then(res => res.json())
         .then(videoData => {
-            videoData.results.forEach(el => {
-                document.getElementById('triller').innerHTML = ''
+            const el = videoData.results
 
-                if (el.name) {
-                    if ((String(el.name).toLocaleLowerCase()).match('trailer') || (String(el.name).toLocaleLowerCase()).match('final trailer') || (String(el.name).toLocaleLowerCase()).match('official trailer')) {
-                        arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=1&playlist=${el.key}&showinfo=0&Access-Control-Allow-Origin" title="${el.name}"></iframe>`)
-                        document.getElementById('triller').innerHTML = arr[0]
-                        // console.log(document.querySelector('#triller>iframe').contentDocument);
-                        // console.log(document.querySelector('#triller>iframe').contentDocument.querySelector('html>body>div'));
-                    }
-                }
-            })
+            for (let i = 0; i < el.length; i++) {
+                arr.unshift(`<iframe allow="fullscreen;" src="https://www.youtube.com/embed/${el[i].key}?controls=1&autoplay='0'&loop='0'&playlist=${el[i].key}&showinfo='0'&mute='0'&frameborder='0'" title="${R.original_title}"></iframe>`)
+                document.getElementById('triller').innerHTML = arr[0]
+                if (R.original_title && (String(R.original_title).toLocaleLowerCase()).match('final trailer') || (String(R.original_title).toLocaleLowerCase()).match('official trailer'))
+                    break
+            }
         })
+        .catch(e => console.log(e))
 }
 
 document.getElementById('top_movies').addEventListener('click', (e) => {

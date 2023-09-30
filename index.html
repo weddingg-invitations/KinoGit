@@ -260,15 +260,16 @@
 
                             fetch(`${BASE_URL}/movie/${id}/videos?${API_KEY}`).then(res => res.json())
                                 .then(videoData => {
-                                    videoData.results.forEach(el => {
-                                        if (el.name) {
-                                            if ((String(el.name).toLocaleLowerCase()).match('trailer') || (String(el.name).toLocaleLowerCase()).match('final trailer') || (String(el.name).toLocaleLowerCase()).match('official trailer')) {
-                                                arr.unshift(`<iframe src="https://www.youtube.com/embed/${el.key}?controls=0&autoplay=1&loop=1&playlist=${el.key}&showinfo=0&mute=1" title="${el.name}"></iframe>`)
-                                                document.getElementById('triller_video').innerHTML = arr[0]
-                                            }
-                                        }
-                                    })
+                                    const el = videoData.results
+                                    for (let i = 0; i < el.length; i++) {
+                                        console.log(el[i].key);
+                                        arr.unshift(`<iframe src="https://www.youtube.com/embed/${el[i].key}?controls=0&autoplay=1&loop=1&playlist=${el[i].key}&showinfo=0&mute=1" title="${el[i].name}"></iframe>`)
+                                        document.getElementById('triller_video').innerHTML = arr[0]
+                                        if (el[i].name && (String(el[i].name).toLocaleLowerCase()).match('final trailer') || (String(el[i].name).toLocaleLowerCase()).match('official trailer'))
+                                            break
+                                    }
                                 })
+                                .catch(e => console.log(e))
                         }
                     }
                 }
