@@ -251,7 +251,7 @@
         <div class="players-cont">
             <div class="slect-player">
                 <p class="slect-player-btn slect-player-btn-active">плеер 1</p>
-                <p class="slect-player-btn">плеер 2</p>
+                <!-- <p class="slect-player-btn">плеер 2</p> -->
                 <p class="slect-player-btn">триллер</p>
             </div>
 
@@ -263,10 +263,11 @@
                 </div>
             </div>
 
-            <div class="video-players">
+            <!-- not worcking -->
+            <!-- <div class="video-players">
                 <span>нет видео</span>
-                <div id="yohoho" data-title=""></div>
-            </div>
+                <div id="yohoho" data-title="Звук свободы"></div>
+            </div> -->
 
             <div class="video-players">
                 <span>нет видео</span>
@@ -293,15 +294,14 @@
                 function recomendet_films_Swiper() {
                     let slidesPerView_count = 7;
 
-                    if (window.innerWidth < 1300) {
+                    if (window.innerWidth < 1300)
                         slidesPerView_count = 6
-                    }
-                    if (window.innerWidth < 1000) {
+
+                    if (window.innerWidth < 1000)
                         slidesPerView_count = 4
-                    }
-                    if (window.innerWidth < 600) {
+
+                    if (window.innerWidth < 600)
                         slidesPerView_count = 3
-                    }
 
                     let swipers = new Swiper('#recomendet_films_cont', {
                         // loop: true,
@@ -379,7 +379,7 @@
     </footer>
 
     <script type="text/javascript" src="./getMovieUrl.js"></script>
-    <script type="text/javascript" src="./registationForm.js"></script>
+    <script type="text/javascript" src="../../js/registationForm.js"></script>
     <script type="text/javascript" src="./watchMove.js"></script>
 
     <!-- scripts -->

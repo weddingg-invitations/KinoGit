@@ -262,7 +262,6 @@
                                 .then(videoData => {
                                     const el = videoData.results
                                     for (let i = 0; i < el.length; i++) {
-                                        console.log(el[i].key);
                                         arr.unshift(`<iframe src="https://www.youtube.com/embed/${el[i].key}?controls=0&autoplay=1&loop=1&playlist=${el[i].key}&showinfo=0&mute=1" title="${el[i].name}"></iframe>`)
                                         document.getElementById('triller_video').innerHTML = arr[0]
                                         if (el[i].name && (String(el[i].name).toLocaleLowerCase()).match('final trailer') || (String(el[i].name).toLocaleLowerCase()).match('official trailer'))
@@ -360,7 +359,7 @@
     <script type="text/javascript" src="./js/searchAnim/searchAnim.js"></script>
     <script type="text/javascript" src="./js/mob_open_close/mob_open_close.js"></script>
     <script type="text/javascript" src="./pages/index/index.js"></script>
-    <script type="text/javascript" src="./pages/index/registationForm.js"></script>
+    <script type="text/javascript" src="./js/registationForm.js"></script>
 </body>
 
 </html>

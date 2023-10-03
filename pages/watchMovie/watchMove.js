@@ -275,7 +275,7 @@ function watch_thriller(id, R) {
                     break
             }
         })
-        .catch(e => console.log(e))
+        .catch(err => console.log(err))
 }
 
 document.getElementById('top_movies').addEventListener('click', (e) => {

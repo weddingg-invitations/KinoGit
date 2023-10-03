@@ -10,8 +10,7 @@ let movieUrl = decodeURI(window.location.search)
 let get_move_data = movieUrl.slice(movieUrl.indexOf('&') + 6, movieUrl.length)
 
 document.getElementById('kinoplayertop').setAttribute('data-title', get_move_data)
-document.getElementById('yohoho').setAttribute('data-title', get_move_data)
-console.log(get_move_data);
+// document.getElementById('yohoho').setAttribute('data-title', get_move_data) //not worcking
 
 // select player
 let slect_player_btn = document.querySelectorAll('.slect-player-btn')
