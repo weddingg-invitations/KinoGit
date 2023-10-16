@@ -17,7 +17,6 @@ document.querySelector('.login__openPopup').addEventListener('click', () => {
         document.getElementById('_login_').classList.remove('active-block');
     });
 })
-
 document.querySelector('.reg_popup_close').addEventListener('click', () => {
     document.querySelector('.reg_popup').style.display='none';
 })
