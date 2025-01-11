@@ -1,34 +1,63 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/logo-icon/logo2.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/logo-icon/logo-icon.jpg">
-    <link rel="mask-icon" type="image/png" sizes="16x16" href="../../assets/logo-icon/logo-icon.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#1d1d1d">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+    <!-- off Cache-Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <!-- loader -->
-    <link rel="stylesheet" href="../../css/loader/loader.css">
+    <link rel="stylesheet" href="../../css/loader/loader.css?v10">
     <!-- helper -->
-    <link rel="stylesheet" href="./../../css/helper/helper.css">
+    <link rel="stylesheet" href="./../../css/helper/helper.css?v10">
     <!-- fonts -->
-    <link rel="stylesheet" href="./../../assets/fonts/TsukimiRounded/stylesheet.css">
+    <link rel="stylesheet" href="./../../assets/fonts/TsukimiRounded/stylesheet.css?v10">
     <!-- main -->
-    <link rel="stylesheet" href="./app.css">
-    <title>KinoGid</title>
+    <link rel="stylesheet" href="./app.css?v10">
+    <title>KinoGit</title>
 </head>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(97366908, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/97366908" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
 
 <body>
     <header>
         <!-- head swiper container-->
         <div class="head-top-cont">
-            <a href="./../../index.html" class="logo">Kino<span>Gid</span></a>
+            <a href="./../../index.html" class="logo">Kino<span>Git</span></a>
 
             <div class="links-cont">
-                <a href="./../../index.html" class="links">домой</a>
-                <a href="./../faq/fac.html" class="links">фэк</a>
-                <a href="./../privacy-polic/privacy-polic.html" class="links">Правообладателям</a>
-                <a href="./../contact/contact.html" class="links">Контакты</a>
+                <a href="./../../index.html" class="links home">на главную</a>
+                <a href="./../faq/fac.html" class="links faq">FAQ</a>
+                <a href="./../privacy-polic/privacy-polic.html" class="links Copyright_Holders">Правообладателям</a>
+                <a href="./../contact/contact.html" class="links contact">Контакты</a>
             </div>
 
             <div class="mob_open_close" id="mob_open_close">
@@ -40,24 +69,25 @@
     <main>
         <!-- Правообладателям -->
         <div class="app-Polic-cont">
-            <h4>Уважаемые посетители!</h4>
+            <h4 class="title_1">Уважаемые посетители!</h4>
 
-            <p>Наш сайт полностью оптимизирован для просмотра на мобильных устройствах.</p>
+            <p class="paragraph_1">Наш сайт полностью оптимизирован для просмотра на мобильных устройствах.</p>
 
-            <p>Мы не создавали приложений для мобильных устройств <span>iPad</span>, <span>iPhone</span>
+            <p class="paragraph_2">Мы не создавали приложений для мобильных устройств <span>iPad</span>,
+                <span>iPhone</span>
                 <span>App</span> или <span>Android</span>, и не несем
                 ответственность за подобные в интернете.
             </p>
-            <p>
+            <p class="paragraph_3">
                 Любое приложение для мобильных устройств, которое вы найдете в интернете, в магазинах <span>Apple</span>
                 или <span>Android</span>
-                предлагающее просмотр <span>KinoGid</span>, вы устанавливаете на свой страх и риск, и в целях
+                предлагающее просмотр <span>KinoGit</span>, вы устанавливаете на свой страх и риск, и в целях
                 безопасности ваших
                 планшетов и мобильных мы настоятельно не рекомендуем пробовать устанавливать подобные приложения, даже
                 если там написано что оно официальное и есть ссылка на наш сайт.
             </p>
 
-            <h4>C уважением, администрация сайта</h4>
+            <h4 class="title_2">C уважением, администрация сайта</h4>
         </div>
     </main>
     <footer>
@@ -83,15 +113,19 @@
                     </g>
                 </svg>
 
-                <div class="logo logo-loader">
-                    <h1>Kino<span>Gid</span></h1>
+                <div class="logo-loader">
+                    <h2>Kino<span>Git</span></h2>
                 </div>
             </div>
         </div>
 
     </footer>
 
-    <script src="./app.js"></script>
+    <script src="./app.js?v10"></script>
+    <script src="./guests.js?v10"></script>
+    <script src="../../js/script.js?v10"></script>
+    <!-- <script src="./lang.js?v10"></script> -->
+
 </body>
 
 </html>
