@@ -29,6 +29,11 @@ span {
     color: $colororange;
 }
 
+b {
+    display: inline;
+    font-weight: 400;
+}
+
 .link {
     color: orange;
     font-weight: bold;
@@ -84,6 +89,10 @@ header {
             padding-bottom: 4px;
         }
     }
+
+    .home {
+        color: $colororange;
+    }
 }
 
 main {
@@ -93,18 +102,39 @@ main {
 .instruction {
 
     h2 {
+        font-size: 16px;
         text-align: center;
         margin-bottom: 30px;
         color: $colororange;
     }
 
     h4 {
+        font-size: 14px;
         margin: 10px 0;
         color: $colororange;
     }
 
     p {
+        font-size: 14px;
         margin: 5px 20px;
+    }
+
+    .btn_clear_catch {
+        border: none;
+        outline: none;
+        color: white;
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0.1411764706);
+        transition: 250ms;
+        padding: 8px 12px;
+        border-radius: 5px;
+        margin: 5px 0 5px 30px;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e89700;
+        }
     }
 }
 
@@ -151,22 +181,65 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+    header {
+        z-index: 6;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
     .mob_open_close {
         display: inline-block;
     }
 
     .links-cont {
         position: absolute;
-        right: -300px;
-        top: 55px;
+        right: 0;
+        top: -300px;
         display: flex;
         flex-direction: column;
         padding: 30px 20px;
         line-height: 35px;
-        transition: 350ms ease-in-out;
+        background-color: #0c0c0c;
+        transition: 0;
+        border-radius: 0 0 0 15px;
+        z-index: 2;
+
+        .links {
+            transition: 0;
+            font-size: 14px;
+
+            &:hover {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            &:active {
+                color: $colororange;
+            }
+        }
     }
 
     .links-cont-active {
-        right: 0;
+        top: 55px;
+    }
+
+    .instruction {
+        h2 {
+            font-size: 16px;
+        }
+
+        h4 {
+            font-size: 13px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        .btn_clear_catch {
+            font-size: 12px;
+        }
     }
 }

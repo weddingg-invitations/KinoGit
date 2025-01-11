@@ -71,13 +71,14 @@ header {
     padding: 0 25px;
 }
 
-.links-cont{
-    .links{
+.links-cont {
+    .links {
         font-size: 18px;
         margin-left: 5px;
         transition: 250ms;
         padding-bottom: 0px;
-        &:hover{
+
+        &:hover {
             border-bottom: 1px solid;
             padding-bottom: 4px;
         }
@@ -147,6 +148,10 @@ main {
             padding-bottom: 4px;
         }
     }
+
+    .home {
+        color: $colororange;
+    }
 }
 
 .mob_open_close {
@@ -161,23 +166,55 @@ main {
 }
 
 @media screen and (max-width: 600px) {
+    header {
+        z-index: 6;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
     .mob_open_close {
         display: inline-block;
     }
 
     .links-cont {
         position: absolute;
-        right: -300px;
-        top: 55px;
+        right: 0;
+        top: -300px;
         display: flex;
         flex-direction: column;
         padding: 30px 20px;
         line-height: 35px;
         background-color: #0c0c0c;
-        transition: 350ms ease-in-out;
+        transition: 0;
+        border-radius: 0 0 0 15px;
+        z-index: 2;
+
+        .links {
+            transition: 0;
+            font-size: 14px;
+
+            &:hover {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            &:active {
+                color: $colororange;
+            }
+        }
     }
 
     .links-cont-active {
-        right: 0;
+        top: 55px;
+    }
+
+    main .Privacy-Polic-cont h2{
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 13px;
     }
 }
