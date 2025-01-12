@@ -2,7 +2,7 @@
 function loaderOFF() {
     document.querySelector('.loader').style.opacity = '0'
     window.scrollTo(0, 0)
-    get_favorite()
+    // get_favorite()
 
     setTimeout(() => {
         document.querySelector('.loader').style.display = 'none'
